@@ -145,7 +145,6 @@ body, h1, h2, p{
     margin-right: 0.5em;
     border: none;
     font-size: 2.5em;
- 
     background: none;
 }
 
@@ -267,5 +266,20 @@ body, h1, h2, p{
        align-content: flex-start;
        align-items: flex-start;
     }
+
+    #sidebarContentContainer{
+        width: 250px;
+    }
+
+    .sidebarProject p{
+        text-align: left;
+        margin-left: 0.5em;
+    }
+    
+    .sidebarProject{
+        display: flex;
+        align-items: center;
+    }
+    
 }
 
