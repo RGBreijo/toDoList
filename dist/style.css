@@ -86,6 +86,12 @@ body, h1, h2, p{
     color: #0eb50e;
 }
 
+#closeSidebarContainer{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 0.5em;
+    padding-right: 0.5em;
+}
 
 #sidebarContentContainer{
     /* display: none; */
