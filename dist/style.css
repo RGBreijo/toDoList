@@ -94,7 +94,7 @@ body, h1, h2, p{
 }
 
 #sidebarContentContainer{
-    /* display: none; */
+    display: none;
 }
 
 
@@ -159,15 +159,12 @@ body, h1, h2, p{
 
 .toDoListCard{
     border: 1px solid #707070;
-
-
-    
-
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     padding: 0.5em;
     margin: 0.5em;
     max-width: 350px;
+
 }
 
 
@@ -243,8 +240,32 @@ body, h1, h2, p{
 
 
 
-
-@media only screen and (min-width: 700px)
+@media only screen and (min-width: 400px)
 {
 
+    .toDoListCard{
+        min-width: 350px;
+        max-height: 120px;
+    
+    }
+    
+    #toDoListSection{
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+    }
 }
+
+
+
+
+@media only screen and (min-width: 770px)
+{
+    #toDoListSection{
+       flex-direction: row;
+       flex-wrap: wrap;
+       align-content: flex-start;
+       align-items: flex-start;
+    }
+}
+
