@@ -20,30 +20,79 @@ body, h1, h2, p{
 }
 
 
-/* mobile sidebar open simulation */
-/* #container
-{
-    display: grid;
-    grid-template-columns: 100px 1fr;
+
+
+/* * * * * * * mobile sidebar * * * * * * */ 
+#sidebarContentContainer{
+    position: absolute;
+    width: 160px;
+    height: 100vh;
+}
+
+#sideBarHeading{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
 }
 
 
-#hamburgerIcon{
-    display: none;
+.sidebarProject{
+    font-size: 1.2em;
+    padding: 0.5em;
+    background: #202123;
+    margin-bottom: 0.5em;
 }
 
- */
+.sidebarProject p{
+    text-align: center;
+}
+
+.sidebarProject div{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 0.3em;
+
+}
+
+.sidebarProject div p:first-of-type{
+    margin-right: 0.5em;
+}
 
 
+.addProjectBtnContainer{
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #202023;
+
+}
+
+.addProjectBtnContainer button{
+    font-size: 2.5em;
+    background: none;
+    border: none;
+    color: white;
+    
+}
+
+#deleteProject{
+    color: #cc3e3e;
+}
+
+#editProjectName{
+    color: #0eb50e;
+}
 
 
+#sidebarContentContainer{
+    /* display: none; */
+}
 
 
-
-
-/* mobile header */
-
-/* mobile header*/
+/* * * * * * * mobile header * * * * * * */
 #hamburgerIcon div{
     width: 35px;
     height: 3px;
@@ -51,13 +100,14 @@ body, h1, h2, p{
     margin-bottom: 0.5em;
 }
 
-
-/* mobile header alignment */
 #hamburgerIcon{
     align-self: center;
     margin-top: 0.5em;
     margin-left: 1em;
 }
+
+
+/* * * * * * * mobile sidebarContentContainer * * * * * * */
 
 #currentProjectInfoContainer{
     display: grid;
@@ -78,26 +128,19 @@ body, h1, h2, p{
     margin: 0; 
 }
 
-
-/* add to do list */
-#addBtnListContiner{
-    background-color: #FAFAFA;
-}
-#addBtnListContiner button{
-   border: none;
-   font-size: 2.5em;
-   background: transparent;
-}
-
-/* add to do list alignment*/
 #addBtnListContiner{
     height: 50px;
     display: flex;
     justify-content: flex-end;
+    background-color: #FAFAFA;
 }
 
 #addBtnListContiner button{
     margin-right: 0.5em;
+    border: none;
+    font-size: 2.5em;
+ 
+    background: none;
 }
 
 
@@ -105,3 +148,5 @@ body, h1, h2, p{
     /* 50px size of addBtnListContiner | 75px  size of currentProjectInfoContainer*/ 
     height: calc(100vh - (50px + 75px));  
 }
+
+
