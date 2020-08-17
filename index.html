@@ -9,43 +9,55 @@
 <body>
 
     <div id="container">
+            <section id="sidebarContentContainer">   
 
-        <section class="sidebarContainer">   
-
-            <div>
-                <h2>Projects</h2>
-            </div>
-            <nav id="sidebar">
-
-                <div class="sidebarProject">
-                    <p>Project One</p>
-                    <div>
-                        <p>Delete</p>
-                        <p>Add</p>
-                    </div>
+                <div id="sideBarHeading">
+                    <h2>PROJECTS</h2>
                 </div>
-            </nav>
-            
-            <div>
-                <button id="addProject">+</button>
-            </div>
-        </section>
+
+                <nav id="sidebar">
+
+                    <div class="sidebarProject">
+                        <p>Project One</p>
+                        <div>
+                            <p id="editProjectName">Edit</p>
+                            <p id="deleteProject">Delete</p>
+                        </div>
+                    </div>
+
+                </nav>
+                
+                <div class="addProjectBtnContainer">
+                    <button id="addProjectBtn">+</button>
+                </div>
+            </section>
+        </div>
 
 
 
-        <div class="mainContentContainer">
 
-            <header id="">
+        <div id="mainContentContainer">
+
+            <header id="currentProjectInfoContainer">
+                
+                <div id="hamburgerIcon">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
                 <h1 id="currentProjects">Project One</h1>
+
             </header>
             
-            <section>
-
+            <section id="toDoListSection">
+    
             </section>
 
-            <div>
+            <div id="addBtnListContiner">
                 <button id="addList">+</button>
             </div>
+
         </div>
     </div>
 
