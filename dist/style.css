@@ -1,0 +1,107 @@
+/* Default values  */
+body, h1, h2, p{
+    margin: 0; 
+    padding: 0; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#sidebarContentContainer{
+    background-color: #252529;
+    color: white;
+}
+
+#currentProjectInfoContainer{
+    background-color: #302E2E;
+    color: white;
+}
+
+#toDoListSection{
+    background-color: #f4f4f4;
+}
+
+
+/* mobile sidebar open simulation */
+/* #container
+{
+    display: grid;
+    grid-template-columns: 100px 1fr;
+}
+
+
+#hamburgerIcon{
+    display: none;
+}
+
+ */
+
+
+
+
+
+
+
+
+/* mobile header */
+
+/* mobile header*/
+#hamburgerIcon div{
+    width: 35px;
+    height: 3px;
+    background-color: #707070;
+    margin-bottom: 0.5em;
+}
+
+
+/* mobile header alignment */
+#hamburgerIcon{
+    align-self: center;
+    margin-top: 0.5em;
+    margin-left: 1em;
+}
+
+#currentProjectInfoContainer{
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    height: 75px;
+}
+
+#currentProjects{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; 
+    margin: 0; 
+}
+
+#currentProjects h1{
+    padding: 0; 
+    margin: 0; 
+}
+
+
+/* add to do list */
+#addBtnListContiner{
+    background-color: #FAFAFA;
+}
+#addBtnListContiner button{
+   border: none;
+   font-size: 2.5em;
+   background: transparent;
+}
+
+/* add to do list alignment*/
+#addBtnListContiner{
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#addBtnListContiner button{
+    margin-right: 0.5em;
+}
+
+
+#toDoListSection{
+    /* 50px size of addBtnListContiner | 75px  size of currentProjectInfoContainer*/ 
+    height: calc(100vh - (50px + 75px));  
+}
