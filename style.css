@@ -39,7 +39,6 @@ body, h1, h2, p{
 .sidebarProject{
     font-size: 1.2em;
     padding: 0.5em;
-
     background: rgba(38, 44, 56, 0.5);
     margin-bottom: 0.5em;
 }
@@ -94,15 +93,11 @@ body, h1, h2, p{
     padding-right: 0.5em;
 }
 
-#closeSidebarContainer p{
-    font-weight: bold;
-    font-size: 1.3em;
-}
-
+/* 
+Change to display absolute when it is not longer in display none */
 /* #sidebarContentContainer{
     display: none;
 } */
-
 
 
 /* * * * * * * mobile header * * * * * * */
@@ -161,20 +156,11 @@ body, h1, h2, p{
     min-height: calc(100vh - (50px + 75px));  
 }
 
-
-#test{
-    background-color: #0A0A21;
-}
-
-#test p{
-    color: #9c9ca2;
-}
 /* * * * * * * mobile todo list card * * * * * * */
 
 .toDoListCard{
-    /* border: 1px solid #F9FAFD; */
 
-     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     padding: 0.5em;
     margin: 0.5em;
@@ -193,10 +179,6 @@ body, h1, h2, p{
 
 .toDoListCardFooter div{
     display: flex;
-}
-
-.toDoListText, .toDoEdit, .toDoListTitle{
-    color: #171717;
 }
 
 .priorityHigh,.priorityMedium, .priorityLow{
@@ -236,7 +218,6 @@ body, h1, h2, p{
     border: none;
     border-radius: 5px;
     padding: 0.4em;
-    width: 50px;
 
 }
 
@@ -252,7 +233,6 @@ body, h1, h2, p{
 }
 
 .deleteToDoContainer p{
-    font-weight: bold;
     color: #fb7f7f;
 }
 
@@ -283,6 +263,40 @@ body, h1, h2, p{
 
 @media only screen and (min-width: 770px)
 {
+
+    
+    #hamburgerIcon{
+        display: none;
+    }
+
+    
+    #currentProjectInfoContainer{
+        display: flex;
+        justify-content: center;
+    }
+
+
+
+
+    #sidebarContentContainer{
+        position: relative;
+
+    }
+    .addProjectBtnContainer{
+        position: absolute;
+        bottom: 0;
+        
+    }
+    #container{
+        display: grid; 
+        grid-template-columns: 250px 1fr; 
+    }
+
+
+
+
+    
+    
     #toDoListSection{
        flex-direction: row;
        flex-wrap: wrap;
@@ -305,4 +319,3 @@ body, h1, h2, p{
     }
     
 }
-
