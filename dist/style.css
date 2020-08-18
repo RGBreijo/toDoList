@@ -6,12 +6,12 @@ body, h1, h2, p{
 }
 
 #sidebarContentContainer{
-    background-color: #252529;
+    background-color: #0a0b21;
     color: white;
 }
 
 #currentProjectInfoContainer{
-    background-color: #302E2E;
+    background-color: #13153b;
     color: white;
 }
 
@@ -39,7 +39,8 @@ body, h1, h2, p{
 .sidebarProject{
     font-size: 1.2em;
     padding: 0.5em;
-    background: #202123;
+
+    background: rgba(38, 44, 56, 0.5);
     margin-bottom: 0.5em;
 }
 
@@ -66,7 +67,7 @@ body, h1, h2, p{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #202023;
+    background-color: #00001f;
 
 }
 
@@ -79,11 +80,11 @@ body, h1, h2, p{
 }
 
 #deleteProject{
-    color: #cc3e3e;
+    color: #9a4444;
 }
 
 #editProjectName{
-    color: #0eb50e;
+    color: #2b822b;
 }
 
 #closeSidebarContainer{
@@ -93,16 +94,22 @@ body, h1, h2, p{
     padding-right: 0.5em;
 }
 
-#sidebarContentContainer{
-    display: none;
+#closeSidebarContainer p{
+    font-weight: bold;
+    font-size: 1.3em;
 }
+
+/* #sidebarContentContainer{
+    display: none;
+} */
+
 
 
 /* * * * * * * mobile header * * * * * * */
 #hamburgerIcon div{
     width: 35px;
     height: 3px;
-    background-color: #707070;
+    background-color: white;
     margin-bottom: 0.5em;
 }
 
@@ -154,15 +161,25 @@ body, h1, h2, p{
     min-height: calc(100vh - (50px + 75px));  
 }
 
+
+#test{
+    background-color: #0A0A21;
+}
+
+#test p{
+    color: #9c9ca2;
+}
 /* * * * * * * mobile todo list card * * * * * * */
 
 .toDoListCard{
-    border: 1px solid #707070;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+    /* border: 1px solid #F9FAFD; */
+
+     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     padding: 0.5em;
     margin: 0.5em;
     max-width: 350px;
+    background-color: white;
 
 }
 
@@ -176,6 +193,10 @@ body, h1, h2, p{
 
 .toDoListCardFooter div{
     display: flex;
+}
+
+.toDoListText, .toDoEdit, .toDoListTitle{
+    color: #171717;
 }
 
 .priorityHigh,.priorityMedium, .priorityLow{
@@ -215,6 +236,7 @@ body, h1, h2, p{
     border: none;
     border-radius: 5px;
     padding: 0.4em;
+    width: 50px;
 
 }
 
@@ -230,6 +252,7 @@ body, h1, h2, p{
 }
 
 .deleteToDoContainer p{
+    font-weight: bold;
     color: #fb7f7f;
 }
 
