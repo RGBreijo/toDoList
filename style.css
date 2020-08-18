@@ -6,12 +6,12 @@ body, h1, h2, p{
 }
 
 #sidebarContentContainer{
-    background-color: #0a0b21;
-    color: white;
+    background-color: white;
+    color: #6D6D6D;
 }
 
 #currentProjectInfoContainer{
-    background-color: #13153b;
+    background-color: #2390d8;
     color: white;
 }
 
@@ -30,18 +30,29 @@ body, h1, h2, p{
 }
 
 #sideBarHeading{
-    margin-top: 1em;
+    margin-top: 0.5em;
     margin-bottom: 1em;
     text-align: center;
+    padding-bottom: 12px;
+    color: #5F5F5F;
+    border-bottom: 1px solid #E5E5E5;
+    
 }
+
+
 
 
 .sidebarProject{
     font-size: 1.2em;
     padding: 0.5em;
-    background: rgba(38, 44, 56, 0.5);
+    background:#E5E5E5;
     margin-bottom: 0.5em;
 }
+
+#notSelected{
+    background: white;
+}
+
 
 .sidebarProject p{
     text-align: center;
@@ -66,7 +77,7 @@ body, h1, h2, p{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #00001f;
+    background-color: #64aae6;
 
 }
 
@@ -78,13 +89,11 @@ body, h1, h2, p{
     
 }
 
-#deleteProject{
-    color: #9a4444;
+#deleteProject, #editProjectName{
+    color: #9ea09e;
 }
 
-#editProjectName{
-    color: #2b822b;
-}
+
 
 #closeSidebarContainer{
     display: flex;
@@ -93,8 +102,13 @@ body, h1, h2, p{
     padding-right: 0.5em;
 }
 
+.selectedProjectTitle{
+    color: #030303;
+}
 /* 
-Change to display absolute when it is not longer in display none */
+Change to display absolute when it is not longer in display none 
+when get out goes out cause of grid 
+*/
 /* #sidebarContentContainer{
     display: none;
 } */
@@ -260,9 +274,19 @@ Change to display absolute when it is not longer in display none */
 
 
 
-
 @media only screen and (min-width: 770px)
 {
+
+    /* All this needs to be commented out for the navbar to close on bigger screen  */
+    
+    #sidebarContentContainer{
+    display: none;
+    }
+
+/* 
+    #toDoListSection{
+        padding-left: 3em;
+    }
 
     
     #hamburgerIcon{
@@ -274,9 +298,6 @@ Change to display absolute when it is not longer in display none */
         display: flex;
         justify-content: center;
     }
-
-
-
 
     #sidebarContentContainer{
         position: relative;
@@ -290,7 +311,7 @@ Change to display absolute when it is not longer in display none */
     #container{
         display: grid; 
         grid-template-columns: 250px 1fr; 
-    }
+    } */
 
 
 
