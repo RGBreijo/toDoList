@@ -91,9 +91,8 @@ body, h1, h2, p{
 
 #deleteProject, #editProjectName{
     color: #9ea09e;
+
 }
-
-
 
 #closeSidebarContainer{
     display: flex;
@@ -232,6 +231,7 @@ when get out goes out cause of grid
     border: none;
     border-radius: 5px;
     padding: 0.4em;
+    width: 50px;
 
 }
 
@@ -248,6 +248,7 @@ when get out goes out cause of grid
 
 .deleteToDoContainer p{
     color: #fb7f7f;
+    font-weight: bold;
 }
 
 .toDoListCardContent{
@@ -278,7 +279,7 @@ when get out goes out cause of grid
 {
 
     /* All this needs to be commented out for the navbar to close on bigger screen  */
-    
+
     #sidebarContentContainer{
     display: none;
     }
