@@ -349,7 +349,7 @@ when get out goes out cause of grid
     padding-right: 0.5em;
 }
 
-.todoInputCardCreate button{
+.todoInputCardCreate button, #projectInputBtnContainer button{
     border: none;
     font-size: 1.2em;
     border-radius: 5px;
@@ -373,7 +373,7 @@ when get out goes out cause of grid
 
 
 
-#positionTodoInputCard{
+.positionInputContent{
     position: absolute;
     display: flex;
     justify-content: center;
@@ -393,6 +393,53 @@ when get out goes out cause of grid
 
 
 
+/******** project input card  ***********/
+
+
+
+#projectInputContainer{
+    position: relative;
+    background-color: white;
+    max-width: 300px;
+    height: 150px;
+    border-radius: 5px;
+    padding: 1em;
+}
+
+#projectInputContainer h2{
+    padding: 0; 
+    margin: 0;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+#projectInputContainer input{
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 0.5em;
+    margin-left: 1em;
+}
+
+
+#projectInputBtnContainer{
+    position: absolute;
+    bottom: 0;
+    right:0;
+    text-align: end;
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+
+}
+
+#projectInputBtnContainer button{
+
+    border: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    padding: 0.3em;
+    color: white;
+    background-color: #37c9f9;
+}
 
 @media only screen and (min-width: 400px)
 {
