@@ -108,9 +108,9 @@ body, h1, h2, p{
 Change to display absolute when it is not longer in display none 
 when get out goes out cause of grid 
 */
-/* #sidebarContentContainer{
+#sidebarContentContainer{
     display: none;
-} */
+}
 
 
 /* * * * * * * mobile header * * * * * * */
@@ -254,6 +254,123 @@ when get out goes out cause of grid
 .toDoListCardContent{
     text-align: center;
 }
+
+
+
+/******** to do list input card  ***********/
+
+#todoInputCardContainer{
+    border-radius: 5px;
+
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.todoInputCardTitleContainer label, #todoInputCardDescriptionContainer label, .dueDateContainer label, .priorityContainer p{
+    margin-left: 1em;
+}
+
+#todoInputCardClose{
+    text-align: end;
+    padding-top: 0.5em;
+    padding-right: 1em;
+    color: #FB7F80;
+    font-weight: bold;
+}
+
+#todoInputCardClose p, #todoInputCardTitle, .todoInputCardTitleContainer{
+   margin: 0;
+   padding: 0;
+}
+
+
+#todoInputCardTitle{
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+
+.todoInputCardTitleContainer{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 5.5em;
+    margin-bottom: 0.5em;
+    margin-top: 1em;
+}
+
+.todoInputCardTitleContainer input{
+    border-radius: 3px;
+    border: none;
+    height: 25px;
+    border: 1px solid gray;
+}
+
+
+#todoInputCardDescriptionContainer{
+    margin-top: 1em;
+    display: flex; 
+    flex-direction: column;
+}
+
+#descriptionTextAreaContainer{
+    text-align: center;
+}
+
+#todoInputCardDescriptionContainer textarea{
+    margin-top: 0.5em;
+    box-sizing: border-box;
+    width: 90%;
+}
+
+
+.priorityContainer{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+     display: flex;
+     align-items: center;
+}
+
+.priorityContainer p{
+    margin-right: 1em;
+}
+
+.priorityCheckboxContainer{
+    display: flex;
+}
+
+.priorityCheckboxContainer div, .dueDateContainer label{
+    margin-right: 0.5em;
+}
+
+.todoInputCardCreate{
+    text-align: end;
+    margin-top: 2em;
+    padding-bottom: 0.5em;
+    padding-right: 0.5em;
+}
+
+.todoInputCardCreate button{
+    border: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    padding: 0.3em;
+    color: white;
+    background-color: #37c9f9;
+
+}
+
+#todoInputCardLow{
+    color: #3fca29;
+}
+
+#todoInputCardMedium{
+    color: #d8b656;
+}
+
+#todoInputCardHigh{
+    color: #c73b3b;
+}
+
 
 
 
