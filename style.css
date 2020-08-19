@@ -373,10 +373,35 @@ when get out goes out cause of grid
 
 
 
+#positionTodoInputCard{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:rgba(0, 0, 0, 0.2);
+}
+
+
+#todoInputCardContainer{
+    background-color: white;
+    max-width: 300px;
+}
+
+
+
 
 @media only screen and (min-width: 400px)
 {
 
+    #todoInputCardContainer{
+        max-width: 400px;
+    }
+
+    
     .toDoListCard{
         min-width: 350px;
         max-height: 120px;
