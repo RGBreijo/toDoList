@@ -165,8 +165,8 @@ when get out goes out cause of grid
 
 
 #toDoListSection{
-    /* 50px size of addBtnListContiner | 75px  size of currentProjectInfoContainer*/ 
-    min-height: calc(100vh - (50px + 75px));  
+    overflow: auto;
+    height: calc(100vh - (50px + 75px));  
 }
 
 /* * * * * * * mobile todo list card * * * * * * */
