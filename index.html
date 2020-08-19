@@ -191,6 +191,71 @@
 
 
 
+    <div id="todoInputCardContainer">
+
+        <div id="todoInputCardClose">
+            <p>X</p>
+        </div>
+        
+        <form action="">
+            <p id="todoInputCardTitle"> TO DO</p>
+
+            <div class="todoInputCardTitleContainer">
+                <label for="title">Title</label>
+                <input type="text" id="title" placeholder="Physics">
+            </div>
+
+            <div id="todoInputCardDescriptionContainer">
+                <div>
+                    <label for="description">Description</label>
+                </div>
+
+                <div id="descriptionTextAreaContainer">
+                    <textarea name="" id="" cols="50" rows="4" placeholder="Finish physics Homework one"></textarea>
+                </div>
+            </div>
+
+
+            <div class="priorityContainer">
+                <p>Priority</p>
+
+                <div class="priorityCheckboxContainer">
+                    
+                    <div>
+                        <label for="low" id="todoInputCardLow">Low</label>
+                        <input type="radio" class="priorityLevel" name="Priority" id="low">
+                    </div>
+
+                    
+                    <div>
+                        <label for="medium" id="todoInputCardMedium">Medium</label>
+                        <input type="radio" class="priorityLevel" name="Priority" id="medium">
+                     </div>
+                    
+                     <div>
+                        <label for="high" id="todoInputCardHigh">High</label>
+                        <input type="radio" class="priorityLevel" name="Priority" id="high">
+                     </div>
+
+                </div>
+
+            </div>
+
+            <div class="dueDateContainer">
+                <label for="dueDate">Due Date</label>
+                <input type="date" id="dueDate">
+            </div>
+
+            <div class="todoInputCardCreate">
+                <button>Create</button>
+            </div>
+        </form>
+    </div>
+
+
+
+
+
     <script src="main.js"></script>
 </body>
 </html>
