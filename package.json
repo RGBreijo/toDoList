@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RGBreijo/resturant-page.git"
+    "url": "git+https://github.com/RGBreijo/todolist.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/RGBreijo/resturant-page/issues"
+    "url": "https://github.com/RGBreijo/todolist/issues"
   },
-  "homepage": "https://github.com/RGBreijo/resturant-page#readme",
+  "homepage": "https://github.com/RGBreijo/todolist#readme",
   "devDependencies": {
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
