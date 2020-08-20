@@ -2,14 +2,9 @@
 class toDoListCard
 {
 
-    
-
-    constructor(title, description, priority, date)
+    constructor(project)
     {
-        this.title = title; 
-        this.description = description; 
-        this.priority = priority; 
-        this.date = date; 
+       this.project = project; 
     }
 
 
@@ -100,8 +95,10 @@ class toDoListCard
 
         let priorityLevel = this.CreateParagraph(UserpriorityLevel); 
         let editBtn = this.CreateButton("Edit", "toDoEdit"); 
+        
+        let setPriority = `priority${UserpriorityLevel}`;
 
-        let encapsulatePrioityLvl = this.createDiv("priorityHigh");
+        let encapsulatePrioityLvl = this.createDiv(setPriority);
         encapsulatePrioityLvl.appendChild(priorityLevel); 
 
         let encapsulatePrioityLvlAndEditBtn = this.createDiv(); 
