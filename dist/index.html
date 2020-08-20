@@ -82,7 +82,7 @@
             <p>X</p>
         </div>
         
-        <form id="createToDoCardForm">
+        <div id="createToDoCardForm" action="#">
             <p id="todoInputCardTitle"> TO DO</p>
 
             <div class="todoInputCardTitleContainer">
@@ -96,7 +96,7 @@
                 </div>
 
                 <div id="descriptionTextAreaContainer">
-                    <textarea name="" id="toDoDescription" cols="50" rows="4" placeholder="Finish physics Homework one"></textarea>
+                    <textarea name="" id="toDoDescription" cols="50" rows="4" placeholder="Finish physics Homework one" required></textarea>
                 </div>
             </div>
 
@@ -108,18 +108,18 @@
                     
                     <div>
                         <label for="low" id="todoInputCardLow">Low</label>
-                        <input type="radio" class="priorityLevel" name="Priority" id="low" value="low">
+                        <input type="radio" class="priorityLevel" name="Priority" id="low" value="Low">
                     </div>
 
                     
                     <div>
                         <label for="medium" id="todoInputCardMedium">Medium</label>
-                        <input type="radio" class="priorityLevel" name="Priority" id="medium" value="medium">
+                        <input type="radio" class="priorityLevel" name="Priority" id="medium" value="Medium">
                      </div>
                     
                      <div>
                         <label for="high" id="todoInputCardHigh">High</label>
-                        <input type="radio" class="priorityLevel" name="Priority" id="high" value="high">
+                        <input type="radio" class="priorityLevel" name="Priority" id="high" value="High">
                      </div>
 
                 </div>
@@ -132,9 +132,9 @@
             </div>
 
             <div class="todoInputCardCreate">
-                <button id="createToDoBtn">Create</button>
+                <button type = "submit" id="createToDoBtn">Create</button>
             </div>
-        </form>
+        </div>
     </div>
 </div>
 
