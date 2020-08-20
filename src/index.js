@@ -1,16 +1,12 @@
 import {toDoListCard} from "./toDoCard.js";
-import {initializeBtn} from "./grabToDoCardInput.js";
-
-
-let test = new toDoListCard("school"); 
-
-let toDoListContainer = document.querySelector("#toDoListSection"); 
-
-toDoListContainer.appendChild(test.createToDoListCard("Math", "Complete physics homework", "High", "Aug 25")); 
-toDoListContainer.appendChild(test.createToDoListCard("Stats", "Complete physics homework", "High", "Aug 25")); 
+import{createCard} from "./createTodoCard.js";
 
 
 
-initializeBtn(); 
+document.querySelector("#createToDoBtn").addEventListener("click", createCard);
+document.querySelector("#addList").addEventListener("click", displayToDoInput);
 
-
+function displayToDoInput()
+{
+    document.querySelector(".positionInputContent").style.display = "flex"; 
+}
