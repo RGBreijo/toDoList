@@ -2,9 +2,8 @@
 class toDoListCard
 {
 
-    constructor(project)
+    constructor()
     {
-       this.project = project; 
     }
 
 
