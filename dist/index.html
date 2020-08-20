@@ -75,14 +75,14 @@
 
 
 
-<!-- 
+
 <div class="positionInputContent">
     <div id="todoInputCardContainer">
         <div id="todoInputCardClose">
             <p>X</p>
         </div>
         
-        <form action="">
+        <form id="createToDoCardForm">
             <p id="todoInputCardTitle"> TO DO</p>
 
             <div class="todoInputCardTitleContainer">
@@ -96,7 +96,7 @@
                 </div>
 
                 <div id="descriptionTextAreaContainer">
-                    <textarea name="" id="" cols="50" rows="4" placeholder="Finish physics Homework one"></textarea>
+                    <textarea name="" id="toDoDescription" cols="50" rows="4" placeholder="Finish physics Homework one"></textarea>
                 </div>
             </div>
 
@@ -108,18 +108,18 @@
                     
                     <div>
                         <label for="low" id="todoInputCardLow">Low</label>
-                        <input type="radio" class="priorityLevel" name="Priority" id="low">
+                        <input type="radio" class="priorityLevel" name="Priority" id="low" value="low">
                     </div>
 
                     
                     <div>
                         <label for="medium" id="todoInputCardMedium">Medium</label>
-                        <input type="radio" class="priorityLevel" name="Priority" id="medium">
+                        <input type="radio" class="priorityLevel" name="Priority" id="medium" value="medium">
                      </div>
                     
                      <div>
                         <label for="high" id="todoInputCardHigh">High</label>
-                        <input type="radio" class="priorityLevel" name="Priority" id="high">
+                        <input type="radio" class="priorityLevel" name="Priority" id="high" value="high">
                      </div>
 
                 </div>
@@ -132,12 +132,16 @@
             </div>
 
             <div class="todoInputCardCreate">
-                <button>Create</button>
+                <button id="createToDoBtn">Create</button>
             </div>
         </form>
     </div>
 </div>
- -->
+
+
+
+
+
 
 <!-- <div class="positionInputContent">
     <div id="projectInputContainer">
