@@ -1,9 +1,10 @@
 import {toDoListCard} from "./toDoCard.js";
 
 
-let test = new toDoListCard("Jim", "Joke", "immediate", "aug 25"); 
+let test = new toDoListCard("school"); 
 
+let toDoListContainer = document.querySelector("#toDoListSection"); 
 
-// title, textContent, priorityLevel, dueDate
-console.log(test.createToDoListCard("Phsyics", "Complete physics homework", "High", "Aug 25")); 
+toDoListContainer.appendChild(test.createToDoListCard("Math", "Complete physics homework", "High", "Aug 25")); 
+toDoListContainer.appendChild(test.createToDoListCard("Stats", "Complete physics homework", "Low", "Aug 25")); 
 
