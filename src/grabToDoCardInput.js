@@ -1,9 +1,8 @@
-function initializeBtn()
-{
-    const CREATE_BTN = document.querySelector("#createToDoBtn"); 
-    CREATE_BTN.addEventListener("click", getToDoFormInformation);  
-}
 
+
+/*
+    get all the informaiton in the form
+*/
 
 function getToDoFormInformation()
 {
@@ -74,6 +73,6 @@ function getDueDate()
     return DUE_DATE.value; 
 }
 
-export{initializeBtn};
+export{getToDoFormInformation};
 
 
