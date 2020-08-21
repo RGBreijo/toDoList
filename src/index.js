@@ -1,10 +1,11 @@
 import {toDoListCard} from "./toDoCard.js";
 import{createCard} from "./newToDoCard.js";
+import{addToDoCard, saveProjectName, test12} from "./saveData.js";
 
 
-
-
-
+addToDoCard();
+saveProjectName();
+test12(); 
 
 document.querySelector("#createToDoBtn").addEventListener("click", createCard); // OUTSIDE + 
 document.querySelector("#addList").addEventListener("click", displayToDoInput);
