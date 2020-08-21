@@ -52,8 +52,6 @@ function addToDoCard(projectName, listObj)
 
 
 
-
-
 function test12()
 {
     console.log("hi1");
