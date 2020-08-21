@@ -1,7 +1,7 @@
 
 
 /*
-    get all the informaiton in the form
+    get all the informaiton from the to do card input
 */
 
 function getToDoFormInformation()
@@ -24,7 +24,6 @@ function getTitle()
     const TITLE_ELEMENT = document.querySelector("#title"); 
     return TITLE_ELEMENT.value;
 }
-
 
 
 /**

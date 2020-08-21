@@ -1,4 +1,8 @@
 
+/**
+ * Used for creating to do card objects
+ */
+
 class toDoListCard
 {
 
