@@ -36,7 +36,7 @@ function createCard()
  */
 function closeToDoInputCard()
 {   
-    clearToDoInputCard();
+    // clearToDoInputCard();
     document.querySelector(".positionInputContent").style.display = "none"; 
 }
 
@@ -74,9 +74,9 @@ function setEventListeners(e)
 {
     const EDIT = Array.from(document.querySelectorAll(".toDoEdit")); 
 
-    for(let i = 0; i < EDIT.length; i++)
+    if(EDIT.length >= 1)
     {
-        EDIT[i].addEventListener('click', test);
+        EDIT[EDIT.length - 1].addEventListener('click', test);
     }
 }
 
@@ -92,12 +92,19 @@ function test(e)
     let target = e.target || e.srcElement;
 
     document.querySelector("#createToDoBtn").removeEventListener("click", createCard);
-    document.querySelector("#createToDoBtn").addEventListener("click", () => {editMode(target)});
 
+
+    // Fix for button having multiple event listeners 
+    let old_element = document.getElementById("createToDoBtn");
+    let new_element = old_element.cloneNode(true);
+    old_element.parentNode.replaceChild(new_element, old_element);
+
+    document.querySelector("#createToDoBtn").addEventListener("click", () => {editMode(target)});
     document.querySelector(".positionInputContent").style.display = "flex"; 
 }
 
 
+// could it be saving the previous targets?
 
 /**
  * 
@@ -131,6 +138,7 @@ function editMode(target)
 function changeCardContent(target, title, description, priority, dueDate)
 {
 
+    console.log(target);
     const TITLE_PATH = target.parentElement.parentElement.parentElement.parentElement.children[1].firstChild.firstChild;
     const DESCRIPTION_PATH = target.parentElement.parentElement.parentElement.parentElement.children[1].lastChild;
     const PRIORITY_PATH = target.parentElement.parentElement.parentElement.parentElement.lastChild.firstChild.firstChild.firstChild.firstChild;

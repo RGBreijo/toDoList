@@ -12,10 +12,13 @@ document.querySelector("#addList").addEventListener("click", displayToDoInput);
 
 function displayToDoInput()
 {
-    document.querySelector("#createToDoBtn").removeEventListener("click", () => {editMode(target)});
+
+    // Fix for button having multiple event listeners 
+    let old_element = document.getElementById("createToDoBtn");
+    let new_element = old_element.cloneNode(true);
+    old_element.parentNode.replaceChild(new_element, old_element);
+
     document.querySelector("#createToDoBtn").addEventListener("click", createCard);
 
     document.querySelector(".positionInputContent").style.display = "flex"; 
 }
-
-
