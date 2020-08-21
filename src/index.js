@@ -19,6 +19,24 @@ function displayToDoInput()
     old_element.parentNode.replaceChild(new_element, old_element);
 
     document.querySelector("#createToDoBtn").addEventListener("click", createCard);
-
     document.querySelector(".positionInputContent").style.display = "flex"; 
+    clearToDoInputCard();
+}
+
+
+function clearToDoInputCard()
+{
+    const TITLE_ELEMENT = document.querySelector("#title"); 
+    const DESCRIPTION_ELEMENT = document.querySelector("#toDoDescription"); 
+    const PRIORITY_ELEMENTS = Array.from(document.querySelectorAll(".priorityLevel")); 
+    const DUE_DATE = document.querySelector("#dueDate"); 
+
+    TITLE_ELEMENT.value = null;
+    DESCRIPTION_ELEMENT.value = null; 
+    DUE_DATE.value = null;
+
+    for(let i = 0; i < PRIORITY_ELEMENTS.length; i++)
+    {
+        PRIORITY_ELEMENTS[i].checked = false;
+    }
 }

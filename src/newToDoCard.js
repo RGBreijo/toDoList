@@ -62,6 +62,38 @@ function clearToDoInputCard()
 }
 
 
+function populateInputWithCurrentData(cardObj)
+{
+    let title = cardObj.CURRENT_TITLE; 
+    let description = cardObj.CURRENT_DESCRIPTION; 
+    let priority = cardObj.CURRENT_PRIORITY; 
+    let dueDate = cardObj.CURRENT_DUE_DATE; 
+
+    const TITLE_ELEMENT = document.querySelector("#title"); 
+    const DESCRIPTION_ELEMENT = document.querySelector("#toDoDescription"); 
+    const PRIORITY_ELEMENTS = Array.from(document.querySelectorAll(".priorityLevel")); 
+    const DUE_DATE = document.querySelector("#dueDate"); 
+
+
+    TITLE_ELEMENT.value = title;
+    DESCRIPTION_ELEMENT.value = description; 
+    DUE_DATE.value = dueDate;
+
+    
+    for(let i = 0; i < PRIORITY_ELEMENTS.length; i++)
+    {
+       if(PRIORITY_ELEMENTS[i].value === priority)
+       {
+        PRIORITY_ELEMENTS[i].checked = true; 
+       }
+    
+
+    }
+}
+
+
+
+
 
 
 /**
@@ -91,8 +123,12 @@ function test(e)
 {
     let target = e.target || e.srcElement;
 
-    document.querySelector("#createToDoBtn").removeEventListener("click", createCard);
 
+    populateInputWithCurrentData(getEditCardInformation(target)); 
+
+
+
+    document.querySelector("#createToDoBtn").removeEventListener("click", createCard);
 
     // Fix for button having multiple event listeners 
     let old_element = document.getElementById("createToDoBtn");
@@ -102,6 +138,10 @@ function test(e)
     document.querySelector("#createToDoBtn").addEventListener("click", () => {editMode(target)});
     document.querySelector(".positionInputContent").style.display = "flex"; 
 }
+
+
+
+
 
 
 // could it be saving the previous targets?
@@ -137,8 +177,6 @@ function editMode(target)
  */
 function changeCardContent(target, title, description, priority, dueDate)
 {
-
-    console.log(target);
     const TITLE_PATH = target.parentElement.parentElement.parentElement.parentElement.children[1].firstChild.firstChild;
     const DESCRIPTION_PATH = target.parentElement.parentElement.parentElement.parentElement.children[1].lastChild;
     const PRIORITY_PATH = target.parentElement.parentElement.parentElement.parentElement.lastChild.firstChild.firstChild.firstChild.firstChild;
@@ -153,11 +191,24 @@ function changeCardContent(target, title, description, priority, dueDate)
     PRIORITY_PATH.textContent = priority; 
 
     DUE_DATE_PATH.textContent = dueDate; 
-
-
-
 }
 
+
+/**
+ * Grab information from the card that the edit button was clicked on  
+ * 
+ */
+ function getEditCardInformation(target)
+ {
+
+    const CURRENT_TITLE = target.parentElement.parentElement.parentElement.parentElement.children[1].firstChild.firstChild.textContent;
+    const CURRENT_DESCRIPTION = target.parentElement.parentElement.parentElement.parentElement.children[1].lastChild.textContent;
+    const CURRENT_PRIORITY = target.parentElement.parentElement.parentElement.parentElement.lastChild.firstChild.firstChild.firstChild.firstChild.textContent;
+    const CURRENT_DUE_DATE = target.parentElement.parentElement.parentElement.parentElement.lastChild.firstChild.lastChild.lastChild.firstChild.textContent;
+
+
+    return{CURRENT_TITLE, CURRENT_DESCRIPTION, CURRENT_PRIORITY, CURRENT_DUE_DATE}
+ }
 
 
 
