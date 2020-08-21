@@ -10,9 +10,12 @@ document.querySelector("#createToDoBtn").addEventListener("click", createCard); 
 document.querySelector("#addList").addEventListener("click", displayToDoInput);
 
 
+
+document.querySelector("#todoInputCardClose").firstElementChild.addEventListener("click", closeToDoInputScreen);
+
+
 function displayToDoInput()
 {
-
     // Fix for button having multiple event listeners 
     let old_element = document.getElementById("createToDoBtn");
     let new_element = old_element.cloneNode(true);
@@ -21,6 +24,11 @@ function displayToDoInput()
     document.querySelector("#createToDoBtn").addEventListener("click", createCard);
     document.querySelector(".positionInputContent").style.display = "flex"; 
     clearToDoInputCard();
+}
+
+function closeToDoInputScreen()
+{
+    document.querySelector(".positionInputContent").style.display = "none";
 }
 
 
