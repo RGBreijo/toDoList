@@ -99,10 +99,7 @@ function test(e)
 
 
 
-
-
 /**
- * Once
  * 
  * @param {*} target The to do list card to be edited 
  */
@@ -116,7 +113,7 @@ function editMode(target)
     let dueDate = CARD_INFORMATION.DUE_DATE; 
 
     changeCardContent(target, title, description, priority, dueDate); 
-    document.querySelector(".positionInputContent").style.display = "none"; 
+    closeToDoInputCard();
 }
 
 

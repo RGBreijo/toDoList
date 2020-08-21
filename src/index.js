@@ -12,6 +12,9 @@ document.querySelector("#addList").addEventListener("click", displayToDoInput);
 
 function displayToDoInput()
 {
+    document.querySelector("#createToDoBtn").removeEventListener("click", () => {editMode(target)});
+    document.querySelector("#createToDoBtn").addEventListener("click", createCard);
+
     document.querySelector(".positionInputContent").style.display = "flex"; 
 }
 
