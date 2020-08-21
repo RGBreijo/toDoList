@@ -3,11 +3,11 @@ import{createCard} from "./newToDoCard.js";
 
 
 
-document.querySelector("#createToDoBtn").addEventListener("click", createCard);
+
+
+
+document.querySelector("#createToDoBtn").addEventListener("click", createCard); // OUTSIDE + 
 document.querySelector("#addList").addEventListener("click", displayToDoInput);
-
-
-
 
 
 function displayToDoInput()
