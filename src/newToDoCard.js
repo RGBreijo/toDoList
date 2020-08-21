@@ -146,8 +146,16 @@ function changeCardContent(target, title, description, priority, dueDate)
 
     TITLE_PATH.textContent = title; 
     DESCRIPTION_PATH.textContent = description; 
+
+    let setPriority = `priority${priority}`;
+
+    PRIORITY_PATH.parentElement.setAttribute("class", setPriority); 
     PRIORITY_PATH.textContent = priority; 
+
     DUE_DATE_PATH.textContent = dueDate; 
+
+
+
 }
 
 
