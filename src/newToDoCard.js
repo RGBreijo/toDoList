@@ -1,6 +1,6 @@
 import {getToDoFormInformation} from "./getToDoCardInput.js";
 import {toDoListCard} from "./toDoCard.js";
-import{saveToDoCard, displayCard, deleteToDoCard} from "./dataStorage.js";
+import{saveToDoCard, displayCard, deleteToDoCard, updateToDoCard} from "./dataStorage.js";
 
 
 /*
@@ -30,6 +30,8 @@ function createCard()
     setEventListeners() // Sets the event listeners for the newely created card 
     saveToDoCard({TITLE, DESCRIPTION, PRIORITY, DUE_DATE}); 
     closeToDoInputCard(); 
+
+    displayCard();
 }
 
 
@@ -161,6 +163,7 @@ function editMode(target)
 
     changeCardContent(target, title, description, priority, dueDate); 
     closeToDoInputCard();
+    updateToDoCard();
 }
 
 
@@ -228,6 +231,8 @@ function changeCardContent(target, title, description, priority, dueDate)
     target.parentElement.parentElement.remove();
     deleteToDoCard(CURRENT_TITLE, CURRENT_DESCRIPTION, PRIORITY, DUE_DATE); 
  }
+
+
 
 
 export{createCard};
