@@ -59,7 +59,6 @@ function saveToDoCard(listObj)
             storeProjectObj[i].storedProjectList.push(listObj); 
         }
     }
-    displayCard();
 }
 
 // math do homework 1   physics do homework one   or math do homework one  math call proff
@@ -88,8 +87,7 @@ function deleteToDoCard(title, description, priority, dueDate)
             }
         }
     }
-    console.log("deleted");
-    console.log(storeProjectObj); 
+
 }
 
 
@@ -98,11 +96,27 @@ function displayCard()
     console.log(storeProjectObj); 
 }
 
+
 function updateToDoCard()
 {
-
-
+    storeProjectObj = []; 
+ 
+        let toDoCards = document.querySelectorAll(".toDoListCard"); 
+   
+        for(let i = 0; i < toDoCards.length; i++)
+        {
+            const TITLE = toDoCards[i].children[1].firstElementChild.firstElementChild.textContent;
+            const DESCRIPTION = toDoCards[i].children[1].lastElementChild.textContent;
+            const PRIORITY = toDoCards[i].children[1].parentElement.lastElementChild.firstElementChild.firstElementChild.firstElementChild.firstElementChild.textContent;
+            const DUE_DATE = toDoCards[i].children[1].parentElement.lastElementChild.firstElementChild.lastElementChild.lastElementChild.firstElementChild.textContent;
+            
+            saveToDoCard({TITLE, DESCRIPTION, PRIORITY, DUE_DATE});
+        }
+        displayCard();
 }
+   
 
-export{saveToDoCard, saveProjectName, displayCard, deleteToDoCard};
+
+
+export{saveToDoCard, saveProjectName, displayCard, deleteToDoCard, updateToDoCard};
 
