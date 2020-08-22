@@ -21,10 +21,23 @@ let projectObj = () =>
  */
 function saveProjectName()
 {
+    // Gets the highlighted project
     let PROJECTS = Array.from(document.querySelectorAll(".projectSelected")); 
     let projectSelectedName = PROJECTS[0].firstElementChild.textContent;
+    let found = false; 
 
-    if(!(PROJECTS[0] === projectSelectedName))
+
+    // Check if project was already created 
+    for(let i = 0; i < storeProjectObj.length; i++)
+    {
+        if(storeProjectObj[i].originalProjectName === projectSelectedName)
+        {
+            found = true; 
+        }
+    }
+
+    // If not created adds it to the list 
+    if(!found)
     {
         let newProject = projectObj(); 
         newProject.originalProjectName = projectSelectedName;
@@ -33,17 +46,23 @@ function saveProjectName()
 }
 
 
+
 /**
  * Save a to do list card objs to a project 
  * 
  * @param {*} projectName 
  * @param {*} listObj 
  */
-function addToDoCard(projectName, listObj)
+function saveToDoCard(listObj)
 {
+    saveProjectName(); // Checks to see if project already saved if not ads it 
+
+    let PROJECTS = Array.from(document.querySelectorAll(".projectSelected"));  
+    let projectSelectedName = PROJECTS[0].firstElementChild.textContent; // Sees where it should be stored 
+
     for(let i = 0; i < storeProjectObj.length; i++)
     {
-        if(storeProjectObj[i].originalProjectName === projectName)
+        if(storeProjectObj[i].originalProjectName === projectSelectedName)
         {
             storeProjectObj[i].storedProjectList.push(listObj); 
         }
@@ -51,25 +70,19 @@ function addToDoCard(projectName, listObj)
 }
 
 
-
-function test12()
+function showDataStored()
 {
-    console.log("hi1");
 
+    console.log("here");
     for(let i = 0; i < storeProjectObj.length; i++)
     {
-        console.log(storeProjectObj[i].originalProjectName); 
-      
+        console.log(storeProjectObj); 
+    //    for(let x = 0; x < storeProjectObj[i].storedProjectList.length; x++)
+    //    {
+    //        console.log(storeProjectObj[i]); 
+    //    }
     }
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -84,7 +97,7 @@ function updateToDoCard()
 
 }
 
-export{addToDoCard, saveProjectName, test12};
+export{saveToDoCard, saveProjectName, showDataStored};
 
 
 
