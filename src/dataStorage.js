@@ -1,5 +1,3 @@
-
-
 let storeProjectObj = []; // Store all the projects created 
 
 let projectObj = () =>
@@ -41,7 +39,6 @@ function saveProjectName()
 }
 
 
-
 /**
  * Save a to do list card obj to a project 
  * 
@@ -62,18 +59,50 @@ function saveToDoCard(listObj)
             storeProjectObj[i].storedProjectList.push(listObj); 
         }
     }
+    displayCard();
+}
+
+// math do homework 1   physics do homework one   or math do homework one  math call proff
+function deleteToDoCard(title, description, priority, dueDate)
+{
+    let PROJECTS = Array.from(document.querySelectorAll(".projectSelected"));  
+    let projectSelectedName = PROJECTS[0].firstElementChild.textContent; // project name to determine where to do list should be stored 
+
+    for(let i = 0; i < storeProjectObj.length; i++)
+    {
+
+        if(storeProjectObj[i].originalProjectName === projectSelectedName) // Find project 
+        {
+            for(let toDoCard = 0; toDoCard < storeProjectObj[i].storedProjectList.length; toDoCard++) 
+            {
+                let cardTitle = storeProjectObj[i].storedProjectList[toDoCard].TITLE; 
+                let cardDescription = storeProjectObj[i].storedProjectList[toDoCard].DESCRIPTION; 
+                let cardPriority = storeProjectObj[i].storedProjectList[toDoCard].PRIORITY; 
+                let cardDueDate= storeProjectObj[i].storedProjectList[toDoCard].DUE_DATE; 
+
+                // If it works then add the priority and due date the same 
+                if(cardTitle === title && cardDescription === description && cardPriority === priority && cardDueDate == dueDate)
+                {
+                    storeProjectObj[i].storedProjectList.splice(toDoCard, 1); 
+                }
+            }
+        }
+    }
+    console.log("deleted");
+    console.log(storeProjectObj); 
 }
 
 
-function deleteToDoCard()
+function displayCard()
 {
-    // Uses description 
+    console.log(storeProjectObj); 
 }
 
 function updateToDoCard()
 {
 
+
 }
 
-export{saveToDoCard, saveProjectName};
+export{saveToDoCard, saveProjectName, displayCard, deleteToDoCard};
 

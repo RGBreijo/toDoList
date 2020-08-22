@@ -1,6 +1,6 @@
 import {getToDoFormInformation} from "./getToDoCardInput.js";
 import {toDoListCard} from "./toDoCard.js";
-import{saveToDoCard} from "./dataStorage.js";
+import{saveToDoCard, displayCard, deleteToDoCard} from "./dataStorage.js";
 
 
 /*
@@ -219,7 +219,14 @@ function changeCardContent(target, title, description, priority, dueDate)
  function deleteCard(e)
  {
     let target = e.target || e.srcElement;
+
+    const CURRENT_TITLE = target.parentElement.parentElement.children[1].firstChild.firstChild.textContent;
+    const CURRENT_DESCRIPTION = target.parentElement.parentElement.children[1].lastChild.textContent;
+    const PRIORITY = target.parentElement.parentElement.lastElementChild.firstElementChild.firstElementChild.firstElementChild.textContent; 
+    const DUE_DATE = target.parentElement.parentElement.lastElementChild.firstElementChild.lastElementChild.lastElementChild.firstElementChild.textContent;
+
     target.parentElement.parentElement.remove();
+    deleteToDoCard(CURRENT_TITLE, CURRENT_DESCRIPTION, PRIORITY, DUE_DATE); 
  }
 
 
