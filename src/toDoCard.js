@@ -10,7 +10,6 @@ class toDoListCard
     {
     }
 
-
     /**
      *  Create a to do list card 
      * 
@@ -40,8 +39,6 @@ class toDoListCard
     }
 
 
-
-
     /**
      * Creates the elements needed for deleting a card
      */
@@ -54,8 +51,6 @@ class toDoListCard
 
         return encapsulateDelText; 
     }   
-
-
 
     /**
      * Creates the main content for the to do list card 
@@ -128,8 +123,6 @@ class toDoListCard
 
         return toDoListCardFooter;
     }
-
-
 
 
     /**

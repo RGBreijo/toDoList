@@ -1,19 +1,14 @@
 
 
-// Pass in a toDoCardObject
-
-let storeProjectObj = [];
-
+let storeProjectObj = []; // Store all the projects created 
 
 let projectObj = () =>
 {
-    let storedProjectList = [];
-    let originalProjectName = "";  // store project name and then to display it use orginal name 
+    let storedProjectList = []; // to do card associated with the project 
+    let originalProjectName = "";  // project name 
+
     return{storedProjectList, originalProjectName}; 
 }
-
-
-
 
 
 /**
@@ -48,17 +43,17 @@ function saveProjectName()
 
 
 /**
- * Save a to do list card objs to a project 
+ * Save a to do list card obj to a project 
  * 
- * @param {*} projectName 
+ * @param {*} projectName  
  * @param {*} listObj 
  */
 function saveToDoCard(listObj)
 {
-    saveProjectName(); // Checks to see if project already saved if not ads it 
+    saveProjectName(); // Checks to see if the selected project is already made. If not made saved it makes it.  
 
     let PROJECTS = Array.from(document.querySelectorAll(".projectSelected"));  
-    let projectSelectedName = PROJECTS[0].firstElementChild.textContent; // Sees where it should be stored 
+    let projectSelectedName = PROJECTS[0].firstElementChild.textContent; // project name to determine where to do list should be stored 
 
     for(let i = 0; i < storeProjectObj.length; i++)
     {
@@ -68,23 +63,6 @@ function saveToDoCard(listObj)
         }
     }
 }
-
-
-function showDataStored()
-{
-
-    console.log("here");
-    for(let i = 0; i < storeProjectObj.length; i++)
-    {
-        console.log(storeProjectObj); 
-    //    for(let x = 0; x < storeProjectObj[i].storedProjectList.length; x++)
-    //    {
-    //        console.log(storeProjectObj[i]); 
-    //    }
-    }
-}
-
-
 
 
 function deleteToDoCard()
@@ -97,7 +75,5 @@ function updateToDoCard()
 
 }
 
-export{saveToDoCard, saveProjectName, showDataStored};
-
-
+export{saveToDoCard, saveProjectName};
 

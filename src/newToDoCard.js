@@ -1,6 +1,6 @@
 import {getToDoFormInformation} from "./getToDoCardInput.js";
 import {toDoListCard} from "./toDoCard.js";
-import{saveToDoCard, showDataStored} from "./saveData.js";
+import{saveToDoCard} from "./saveData.js";
 
 
 /*
@@ -30,7 +30,6 @@ function createCard()
     setEventListeners() // Sets the event listeners for the newely created card 
     saveToDoCard({TITLE, DESCRIPTION, PRIORITY, DUE_DATE}); 
     closeToDoInputCard(); 
-    showDataStored();
 }
 
 
@@ -138,9 +137,6 @@ function editCard(e)
     document.querySelector("#createToDoBtn").addEventListener("click", () => {editMode(target)});
     openToDoInputCard(); 
 }
-
-
-
 
 
 
