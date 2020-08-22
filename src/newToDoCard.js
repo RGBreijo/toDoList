@@ -1,5 +1,6 @@
 import {getToDoFormInformation} from "./getToDoCardInput.js";
 import {toDoListCard} from "./toDoCard.js";
+import{saveToDoCard, showDataStored} from "./saveData.js";
 
 
 /*
@@ -22,10 +23,14 @@ function createCard()
 
     // Create new card object based on the uesr value and display it in the screen 
     let newCardObj = new toDoListCard(); 
+    newCardObj.createToDoListCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE);
+
     TO_DO_CARD_SECTION.appendChild(newCardObj.createToDoListCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE));
     
     setEventListeners() // Sets the event listeners for the newely created card 
+    saveToDoCard({TITLE, DESCRIPTION, PRIORITY, DUE_DATE}); 
     closeToDoInputCard(); 
+    showDataStored();
 }
 
 
