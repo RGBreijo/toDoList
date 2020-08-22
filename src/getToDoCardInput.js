@@ -43,7 +43,7 @@ function getDiscription()
 function getPriority()
 {
     const PRIORITY_ELEMENTS = Array.from(document.querySelectorAll(".priorityLevel")); 
-    let priorityLvlPicked = null;
+    let priorityLvlPicked = "";
 
     for (let prioritylvlElements = 0; prioritylvlElements < PRIORITY_ELEMENTS.length; prioritylvlElements++)
     {
