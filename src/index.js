@@ -1,11 +1,9 @@
 import {toDoListCard} from "./toDoCard.js";
 import{createCard} from "./newToDoCard.js";
-import{addToDoCard, saveProjectName, test12} from "./saveData.js";
 
 
-addToDoCard();
-saveProjectName();
-test12(); 
+
+addEventListenersForProject(); 
 
 document.querySelector("#createToDoBtn").addEventListener("click", createCard); // OUTSIDE + 
 document.querySelector("#addList").addEventListener("click", displayToDoInput);
@@ -49,3 +47,32 @@ function clearToDoInputCard()
         PRIORITY_ELEMENTS[i].checked = false;
     }
 }
+
+
+
+
+
+
+/////  project section 
+function addEventListenersForProject()
+{
+    let projects = Array.from(document.querySelectorAll(".selectedProjectTitle"));
+
+    for(let i = 0; i < projects.length; i++)
+    {
+        projects[i].addEventListener('click', selectProject);
+    }
+}
+
+function selectProject(e)
+{
+    let target = e.target || e.srcElement;
+
+    let selectedProject = target.parentElement;
+
+    let previousSelectedProject = document.querySelector(".projectSelected"); 
+    previousSelectedProject.classList.remove("projectSelected"); 
+
+    selectedProject.classList.add("projectSelected");
+}
+
