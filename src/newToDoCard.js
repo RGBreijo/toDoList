@@ -4,13 +4,10 @@ import{saveToDoCard, displayCard, deleteToDoCard, updateToDoCard} from "./dataSt
 import {closeToDoInputCard, openToDoInputCard, populateInputWithCurrentData, editMode} from "./todoInput.js";
 
 /*
-    Executes the methods required to create a new card. 
-    This is called by the finish button located in the input box where the user fills 
-    out the card information. 
+    Executes the methods required to create a new card grabing data from the input section
 */
-function createCard()
+function createCardThroughInput()
 {
-    const TO_DO_CARD_SECTION = document.querySelector("#toDoListSection"); 
     const CARD_INFORMATION = getToDoInformation(); 
 
     const TITLE = CARD_INFORMATION.TITLE; 
@@ -18,26 +15,24 @@ function createCard()
     const PRIORITY = CARD_INFORMATION.PRIORITY;
     const DUE_DATE = CARD_INFORMATION.DUE_DATE; 
 
+    createCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE);
+    closeToDoInputCard(); 
+    displayCard();
+}
+
+/*
+    Create a to do card without input block 
+*/
+function createCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE)
+{
+    const TO_DO_CARD_SECTION = document.querySelector("#toDoListSection"); 
 
     let newCardObj = new toDoListCard(); 
     TO_DO_CARD_SECTION.appendChild(newCardObj.createToDoListCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE));
     
     setEventListeners() 
     saveToDoCard({TITLE, DESCRIPTION, PRIORITY, DUE_DATE}); 
-    closeToDoInputCard(); 
-
-    displayCard();
-}
-
-/*
-    Create a to do card directly without input block 
-*/
-function createCardWithoutInputBlock(TITLE, DESCRIPTION, PRIORITY, DUE_DATE)
-{
-    let newCardObj = new toDoListCard(); 
-    TO_DO_CARD_SECTION.appendChild(newCardObj.createToDoListCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE));
-    setEventListeners() // Sets the event listeners for the newely created card 
-    saveToDoCard({TITLE, DESCRIPTION, PRIORITY, DUE_DATE}); 
+    
 }
 
 
@@ -178,4 +173,4 @@ function changeCardContent(target, title, description, priority, dueDate)
 
 
 
-export{createCard, createCardWithoutInputBlock, clearAllCards, changeCardContent};
+export{createCardThroughInput, createCard as createCardWithoutInputBlock, clearAllCards, changeCardContent};

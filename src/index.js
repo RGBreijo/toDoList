@@ -1,11 +1,11 @@
-import{createCard} from "./newToDoCard.js";
+import{createCardThroughInput} from "./newToDoCard.js";
 import{createCardWithoutInputBlock, clearAllCards} from "./newToDoCard.js"
 
 
 
 addEventListenersForProject(); 
 
-document.querySelector("#createToDoBtn").addEventListener("click", createCard); // OUTSIDE + 
+document.querySelector("#createToDoBtn").addEventListener("click", createCardThroughInput); // OUTSIDE + 
 document.querySelector("#addList").addEventListener("click", displayToDoInput);
 
 
@@ -20,7 +20,7 @@ function displayToDoInput()
     let new_element = old_element.cloneNode(true);
     old_element.parentNode.replaceChild(new_element, old_element);
 
-    document.querySelector("#createToDoBtn").addEventListener("click", createCard);
+    document.querySelector("#createToDoBtn").addEventListener("click", createCardThroughInput);
     document.querySelector(".positionInputContent").style.display = "flex"; 
     clearToDoInputCard();
 }
