@@ -1,5 +1,3 @@
-
-
 /*
     get all the informaiton from the to do card input
 */
@@ -73,5 +71,3 @@ function getDueDate()
 }
 
 export{getToDoFormInformation};
-
-
