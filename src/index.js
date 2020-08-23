@@ -1,6 +1,5 @@
-import {toDoListCard} from "./toDoCard.js";
 import{createCard} from "./newToDoCard.js";
-import{createCardWithoutForm, clearAllCards} from "./newToDoCard.js"
+import{createCardWithoutInputBlock, clearAllCards} from "./newToDoCard.js"
 
 
 
@@ -92,7 +91,7 @@ function repopulateProject(projectListObj)
             const PRIORITY = storeProjectObj[i].storedProjectList[toDoCard].PRIORITY; 
             const DUE_DATE= storeProjectObj[i].storedProjectList[toDoCard].DUE_DATE; 
 
-            createCardWithoutForm(TITLE, DESCRIPTION, PRIORITY, DUE_DATE);
+            createCardWithoutInputBlock(TITLE, DESCRIPTION, PRIORITY, DUE_DATE);
         }
     }
 }

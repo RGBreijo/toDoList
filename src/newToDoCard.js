@@ -11,8 +11,6 @@ import {closeToDoInputCard, openToDoInputCard, populateInputWithCurrentData} fro
 function createCard()
 {
     const TO_DO_CARD_SECTION = document.querySelector("#toDoListSection"); 
-
-    // Grab the informatino that the user typed into the input elements 
     const CARD_INFORMATION = getToDoInformation(); 
 
     const TITLE = CARD_INFORMATION.TITLE; 
@@ -21,20 +19,20 @@ function createCard()
     const DUE_DATE = CARD_INFORMATION.DUE_DATE; 
 
 
-    // Create new card object based on the uesr value and display it in the screen 
     let newCardObj = new toDoListCard(); 
-    newCardObj.createToDoListCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE);
-    // CLEAN UP
     TO_DO_CARD_SECTION.appendChild(newCardObj.createToDoListCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE));
     
-    setEventListeners() // Sets the event listeners for the newely created card 
+    setEventListeners() 
     saveToDoCard({TITLE, DESCRIPTION, PRIORITY, DUE_DATE}); 
     closeToDoInputCard(); 
 
     displayCard();
 }
 
-function createCardWithoutForm(TITLE, DESCRIPTION, PRIORITY, DUE_DATE)
+/*
+    Create a to do card directly without input block 
+*/
+function createCardWithoutInputBlock(TITLE, DESCRIPTION, PRIORITY, DUE_DATE)
 {
     let newCardObj = new toDoListCard(); 
     TO_DO_CARD_SECTION.appendChild(newCardObj.createToDoListCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE));
@@ -203,4 +201,4 @@ function changeCardContent(target, title, description, priority, dueDate)
 
 
 
-export{createCard, createCardWithoutForm, clearAllCards};
+export{createCard, createCardWithoutInputBlock, clearAllCards};
