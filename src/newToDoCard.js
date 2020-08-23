@@ -1,7 +1,7 @@
 import {getToDoInformation} from "./getToDoCardInput.js";
 import {toDoListCard} from "./toDoCard.js";
 import{saveToDoCard, displayCard, deleteToDoCard, updateToDoCard} from "./dataStorage.js";
-import {closeToDoInputCard, openToDoInputCard, populateInputWithCurrentData} from "./todoInput.js";
+import {closeToDoInputCard, openToDoInputCard, populateInputWithCurrentData, editMode} from "./todoInput.js";
 
 /*
     Executes the methods required to create a new card. 
@@ -92,29 +92,6 @@ function editCard(e)
 
 
 
-/**
- * Changes the action that should be preformed when finish is clicked 
- * in the input card. 
- * 
- * The new action of the finish button will edit the content of the 
- * card that the edit option was selected instead of creating a new card. 
- * 
- * @param {*} target The to do list card to be edited 
- */
-
-function editMode(target)
-{
-    const CARD_INFORMATION = getToDoInformation(); 
-    
-    let title = CARD_INFORMATION.TITLE; 
-    let description = CARD_INFORMATION.DESCRIPTION; 
-    let priority = CARD_INFORMATION.PRIORITY; 
-    let dueDate = CARD_INFORMATION.DUE_DATE; 
-
-    changeCardContent(target, title, description, priority, dueDate); 
-    closeToDoInputCard();
-    updateToDoCard();
-}
 
 
 
@@ -201,4 +178,4 @@ function changeCardContent(target, title, description, priority, dueDate)
 
 
 
-export{createCard, createCardWithoutInputBlock, clearAllCards};
+export{createCard, createCardWithoutInputBlock, clearAllCards, changeCardContent};
