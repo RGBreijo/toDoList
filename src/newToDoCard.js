@@ -24,7 +24,7 @@ function createCard()
     // Create new card object based on the uesr value and display it in the screen 
     let newCardObj = new toDoListCard(); 
     newCardObj.createToDoListCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE);
-
+    // CLEAN UP
     TO_DO_CARD_SECTION.appendChild(newCardObj.createToDoListCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE));
     
     setEventListeners() // Sets the event listeners for the newely created card 
@@ -32,6 +32,14 @@ function createCard()
     closeToDoInputCard(); 
 
     displayCard();
+}
+
+function createCardWithoutForm(TITLE, DESCRIPTION, PRIORITY, DUE_DATE)
+{
+    let newCardObj = new toDoListCard(); 
+    TO_DO_CARD_SECTION.appendChild(newCardObj.createToDoListCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE));
+    setEventListeners() // Sets the event listeners for the newely created card 
+    saveToDoCard({TITLE, DESCRIPTION, PRIORITY, DUE_DATE}); 
 }
 
 
@@ -230,9 +238,25 @@ function changeCardContent(target, title, description, priority, dueDate)
 
     target.parentElement.parentElement.remove();
     deleteToDoCard(CURRENT_TITLE, CURRENT_DESCRIPTION, PRIORITY, DUE_DATE); 
+
+ }
+
+
+
+ function clearAllCards()
+ {
+    let toDoCards = Array.from(document.querySelectorAll(".toDoListCard")); 
+   
+    for(let i = 0; i < toDoCards.length; i++)
+    {
+        toDoCards[i].remove(); 
+    }
+
+    // also need to set the delete node thing 
+    displayCard();
  }
 
 
 
 
-export{createCard};
+export{createCard, createCardWithoutForm, clearAllCards};

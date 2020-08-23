@@ -1,5 +1,6 @@
 import {toDoListCard} from "./toDoCard.js";
 import{createCard} from "./newToDoCard.js";
+import{createCardWithoutForm, clearAllCards} from "./newToDoCard.js"
 
 
 
@@ -48,11 +49,6 @@ function clearToDoInputCard()
     }
 }
 
-
-
-
-
-
 /////  project section 
 function addEventListenersForProject()
 {
@@ -74,5 +70,30 @@ function selectProject(e)
     previousSelectedProject.classList.remove("projectSelected"); 
 
     selectedProject.classList.add("projectSelected");
+    clearAllCards();
+    // repulate with new one
+}
+
+
+
+
+
+function repopulateProject(projectListObj)
+{
+
+    for(let i = 0; i < projectListObj.length; i++)
+    {
+        for( let toDoCard = 0; toDoCard < storeProjectObj[i].storedProjectList.length; toDoCard++)
+        {
+            // change const because they could actual change so make it all lowercase 
+
+            const TITLE = storeProjectObj[i].storedProjectList[toDoCard].TITLE; 
+            const DESCRIPTION = storeProjectObj[i].storedProjectList[toDoCard].DESCRIPTION; 
+            const PRIORITY = storeProjectObj[i].storedProjectList[toDoCard].PRIORITY; 
+            const DUE_DATE= storeProjectObj[i].storedProjectList[toDoCard].DUE_DATE; 
+
+            createCardWithoutForm(TITLE, DESCRIPTION, PRIORITY, DUE_DATE);
+        }
+    }
 }
 

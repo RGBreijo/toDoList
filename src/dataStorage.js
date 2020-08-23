@@ -102,7 +102,7 @@ function updateToDoCard()
     storeProjectObj = []; 
  
         let toDoCards = document.querySelectorAll(".toDoListCard"); 
-   
+    // no array from????
         for(let i = 0; i < toDoCards.length; i++)
         {
             const TITLE = toDoCards[i].children[1].firstElementChild.firstElementChild.textContent;
