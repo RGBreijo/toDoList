@@ -2,7 +2,7 @@
     get all the informaiton from the to do card input
 */
 
-function getToDoFormInformation()
+function getToDoInformation()
 {
     const TITLE  = getTitle(); 
     const DESCRIPTION = getDiscription(); 
@@ -70,4 +70,4 @@ function getDueDate()
     return DUE_DATE.value; 
 }
 
-export{getToDoFormInformation};
+export{getToDoInformation};
