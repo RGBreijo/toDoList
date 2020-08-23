@@ -1,4 +1,4 @@
-import {getToDoFormInformation} from "./getToDoCardInput.js";
+import {getToDoInformation} from "./getToDoCardInput.js";
 import {toDoListCard} from "./toDoCard.js";
 import{saveToDoCard, displayCard, deleteToDoCard, updateToDoCard} from "./dataStorage.js";
 import {closeToDoInputCard, openToDoInputCard, populateInputWithCurrentData} from "./todoInput.js";
@@ -13,7 +13,7 @@ function createCard()
     const TO_DO_CARD_SECTION = document.querySelector("#toDoListSection"); 
 
     // Grab the informatino that the user typed into the input elements 
-    const CARD_INFORMATION = getToDoFormInformation(); 
+    const CARD_INFORMATION = getToDoInformation(); 
 
     const TITLE = CARD_INFORMATION.TITLE; 
     const DESCRIPTION = CARD_INFORMATION.DESCRIPTION;
@@ -106,7 +106,7 @@ function editCard(e)
 
 function editMode(target)
 {
-    const CARD_INFORMATION = getToDoFormInformation(); 
+    const CARD_INFORMATION = getToDoInformation(); 
     
     let title = CARD_INFORMATION.TITLE; 
     let description = CARD_INFORMATION.DESCRIPTION; 
