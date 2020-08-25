@@ -10,6 +10,9 @@ let projectObj = () =>
     return{storedProjectList, originalProjectName}; 
 }
 
+/**
+ * return the list containg the projects
+ */
 function getStoreProjectObjs()
 {
     return storeProjectObj;
@@ -67,7 +70,15 @@ function saveToDoCard(listObj)
     }
 }
 
-// math do homework 1   physics do homework one   or math do homework one  math call proff
+/**
+ * 
+ * Deletes a to do card 
+ * 
+ * @param {*} title title of the to do car d 
+ * @param {*} description description of the to do car d 
+ * @param {*} priority priority of the to do car d 
+ * @param {*} dueDate due date of the to do car d 
+ */
 function deleteToDoCard(title, description, priority, dueDate)
 {
     let PROJECTS = Array.from(document.querySelectorAll(".projectSelected"));  
@@ -97,12 +108,20 @@ function deleteToDoCard(title, description, priority, dueDate)
 }
 
 
+/**
+ * TEST FUNCTION TO CHECK SUCCESSFUL STORAGE OF PROJECTS 
+ */
 function displayCard()
 {
     console.log(storeProjectObj); 
 }
 
 
+/**
+ * Update the contents of a card in storage 
+ * 
+ * @param {*} selectedProject 
+ */
 function updateToDoCard(selectedProject)
 {
 
@@ -124,9 +143,8 @@ function updateToDoCard(selectedProject)
             }
         }
     }
-
+    
     displayCard();
-
 }
 
 export{saveToDoCard, saveProjectName, displayCard, deleteToDoCard, updateToDoCard, getStoreProjectObjs};

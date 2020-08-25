@@ -1,6 +1,8 @@
 import {getToDoInformation} from "./getToDoCardInput.js";
 import {changeCardContent} from "./newToDoCard.js";
 import{updateToDoCard} from "./dataStorage.js";
+
+
 /**
  * Closes the input card. The input card is the element displayed 
  * when the user is filling information about the to list card. 
@@ -19,6 +21,12 @@ function openToDoInputCard()
     document.querySelector(".positionInputContent").style.display = "flex"; 
 }
 
+/**
+ * Fills the inputs of the to do card input section with data 
+ * from a card obj
+ * 
+ * @param {*} cardObj 
+ */
 function populateInputWithCurrentData(cardObj)
 {
     let title = cardObj.CURRENT_TITLE; 
@@ -43,8 +51,6 @@ function populateInputWithCurrentData(cardObj)
        {
         PRIORITY_ELEMENTS[i].checked = true; 
        }
-    
-
     }
 }
 
