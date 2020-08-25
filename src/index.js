@@ -50,7 +50,9 @@ function clearToDoInputCard()
     }
 }
 
-/////  project section 
+/**
+ * Ads the ability to click on the different projects in the sidebar 
+ */
 function addEventListenersForProject()
 {
     let projects = Array.from(document.querySelectorAll(".selectedProjectTitle"));
@@ -61,6 +63,12 @@ function addEventListenersForProject()
     }
 }
 
+
+/**
+ * Highlights the project that the user clicked and populates 
+ * the to do list section with the appropriate to do list cards 
+ * for that project. 
+ */
 function selectProject(e)
 {
     let target = e.target || e.srcElement;
@@ -76,41 +84,36 @@ function selectProject(e)
 }
 
 
+
+/**
+ * Populates the to do list section with the to do list cards corresponding to the 
+ * project selected
+ */
 function populateSelectedProject()
 {
-    let projectObj = getStoreProjectObjs();
+    let projectListObj = getStoreProjectObjs();
     let projectSelected = document.querySelector(".projectSelected p").textContent;
 
-    if(projectObj.length > 0)
+    if(projectListObj.length > 0)
     {
-
-        repopulateProject(projectObj, projectSelected);
-    }
-
-
-}
-
-// only append the project that is selected 
-function repopulateProject(projectListObj, currentProjectName)
-{
-    console.log(currentProjectName);
-
-    for(let i = 0; i < projectListObj.length; i++)
-    {
-        if(projectListObj[i].originalProjectName === currentProjectName)
+        for(let i = 0; i < projectListObj.length; i++)
         {
-            for(let toDoCard = 0; toDoCard < projectListObj[i].storedProjectList.length; toDoCard++)
+            if(projectListObj[i].originalProjectName === projectSelected)
             {
-                // change const because they could actual change so make it all lowercase 
-
-                const TITLE = projectListObj[i].storedProjectList[toDoCard].TITLE; 
-                const DESCRIPTION = projectListObj[i].storedProjectList[toDoCard].DESCRIPTION; 
-                const PRIORITY = projectListObj[i].storedProjectList[toDoCard].PRIORITY; 
-                const DUE_DATE= projectListObj[i].storedProjectList[toDoCard].DUE_DATE; 
-    
-                createCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE, false); // still need to save them though somehow. once it is done creating it saves them? ads it to the fornt instead? 
+                for(let toDoCard = 0; toDoCard < projectListObj[i].storedProjectList.length; toDoCard++)
+                {
+                    const TITLE = projectListObj[i].storedProjectList[toDoCard].TITLE; 
+                    const DESCRIPTION = projectListObj[i].storedProjectList[toDoCard].DESCRIPTION; 
+                    const PRIORITY = projectListObj[i].storedProjectList[toDoCard].PRIORITY; 
+                    const DUE_DATE= projectListObj[i].storedProjectList[toDoCard].DUE_DATE; 
+        
+                    createCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE, false); 
+                }
             }
+    
         }
-
     }
+
+
 }
+
