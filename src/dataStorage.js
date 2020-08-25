@@ -1,5 +1,7 @@
 let storeProjectObj = []; // Store all the projects created 
 
+
+
 let projectObj = () =>
 {
     let storedProjectList = []; // to do card associated with the project 
@@ -8,6 +10,10 @@ let projectObj = () =>
     return{storedProjectList, originalProjectName}; 
 }
 
+function getStoreProjectObjs()
+{
+    return storeProjectObj;
+}
 
 /**
  * Make a new project object if one is not already made (Need to watch out for duplicates)
@@ -97,26 +103,31 @@ function displayCard()
 }
 
 
-function updateToDoCard()
+function updateToDoCard(selectedProject)
 {
-    storeProjectObj = []; 
- 
-        let toDoCards = document.querySelectorAll(".toDoListCard"); 
-    // no array from????
-        for(let i = 0; i < toDoCards.length; i++)
+
+    for(let i = 0; i < storeProjectObj.length; i++)
+    {
+        if(storeProjectObj[i].originalProjectName === selectedProject)
         {
-            const TITLE = toDoCards[i].children[1].firstElementChild.firstElementChild.textContent;
-            const DESCRIPTION = toDoCards[i].children[1].lastElementChild.textContent;
-            const PRIORITY = toDoCards[i].children[1].parentElement.lastElementChild.firstElementChild.firstElementChild.firstElementChild.firstElementChild.textContent;
-            const DUE_DATE = toDoCards[i].children[1].parentElement.lastElementChild.firstElementChild.lastElementChild.lastElementChild.firstElementChild.textContent;
-            
-            saveToDoCard({TITLE, DESCRIPTION, PRIORITY, DUE_DATE});
+            storeProjectObj[i].storedProjectList = [];
+            let toDoCards = document.querySelectorAll(".toDoListCard"); 
+
+            for(let i = 0; i < toDoCards.length; i++)
+            {
+                const TITLE = toDoCards[i].children[1].firstElementChild.firstElementChild.textContent;
+                const DESCRIPTION = toDoCards[i].children[1].lastElementChild.textContent;
+                const PRIORITY = toDoCards[i].children[1].parentElement.lastElementChild.firstElementChild.firstElementChild.firstElementChild.firstElementChild.textContent;
+                const DUE_DATE = toDoCards[i].children[1].parentElement.lastElementChild.firstElementChild.lastElementChild.lastElementChild.firstElementChild.textContent;
+                
+                saveToDoCard({TITLE, DESCRIPTION, PRIORITY, DUE_DATE});
+            }
         }
-        displayCard();
+    }
+
+    displayCard();
+
 }
-   
 
-
-
-export{saveToDoCard, saveProjectName, displayCard, deleteToDoCard, updateToDoCard};
+export{saveToDoCard, saveProjectName, displayCard, deleteToDoCard, updateToDoCard, getStoreProjectObjs};
 

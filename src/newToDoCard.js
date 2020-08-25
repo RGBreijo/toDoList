@@ -15,7 +15,7 @@ function createCardThroughInput()
     const PRIORITY = CARD_INFORMATION.PRIORITY;
     const DUE_DATE = CARD_INFORMATION.DUE_DATE; 
 
-    createCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE);
+    createCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE, true);
     closeToDoInputCard(); 
     displayCard();
 }
@@ -23,7 +23,7 @@ function createCardThroughInput()
 /*
     Create a to do card without input block 
 */
-function createCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE)
+function createCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE, save)
 {
     const TO_DO_CARD_SECTION = document.querySelector("#toDoListSection"); 
 
@@ -31,7 +31,25 @@ function createCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE)
     TO_DO_CARD_SECTION.appendChild(newCardObj.createToDoListCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE));
     
     setEventListeners() 
-    saveToDoCard({TITLE, DESCRIPTION, PRIORITY, DUE_DATE}); 
+
+    if(save)
+    {
+        saveToDoCard({TITLE, DESCRIPTION, PRIORITY, DUE_DATE}); 
+    }
+  
+}
+
+// TEST COPY WITH REMOVED SAVE TO DO CARD BECAUSE POSSIBEL INFIITE LOOP
+
+function createCardWithoutInputBlock(TITLE, DESCRIPTION, PRIORITY, DUE_DATE)
+{
+    const TO_DO_CARD_SECTION = document.querySelector("#toDoListSection"); 
+
+    let newCardObj = new toDoListCard(); 
+    TO_DO_CARD_SECTION.appendChild(newCardObj.createToDoListCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE));
+    
+    setEventListeners() 
+
     
 }
 
@@ -173,4 +191,4 @@ function changeCardContent(target, title, description, priority, dueDate)
 
 
 
-export{createCardThroughInput, createCard as createCardWithoutInputBlock, clearAllCards, changeCardContent};
+export{createCardThroughInput, createCard, clearAllCards, changeCardContent};

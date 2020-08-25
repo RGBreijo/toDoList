@@ -70,7 +70,9 @@ function editMode(target)
 
     changeCardContent(target, title, description, priority, dueDate); 
     closeToDoInputCard();
-    updateToDoCard();
+    
+    let projectSelected = document.querySelector(".projectSelected p").textContent;
+    updateToDoCard(projectSelected);
 }
 
 
