@@ -4,7 +4,8 @@ import{saveToDoCard, displayCard, deleteToDoCard, updateToDoCard} from "./dataSt
 import {closeToDoInputCard, openToDoInputCard, populateInputWithCurrentData, editMode} from "./todoInput.js";
 
 /*
-    Executes the methods required to create a new card grabing data from the input section
+    Grabs the data that the user inputed for the to do card 
+    and makes a new to do card with that data 
 */
 function createCardThroughInput()
 {
@@ -20,8 +21,9 @@ function createCardThroughInput()
     displayCard();
 }
 
+
 /*
-    Create a to do card without input block 
+    Create a to do card 
 */
 function createCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE, save)
 {
@@ -39,25 +41,8 @@ function createCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE, save)
   
 }
 
-// TEST COPY WITH REMOVED SAVE TO DO CARD BECAUSE POSSIBEL INFIITE LOOP
-
-function createCardWithoutInputBlock(TITLE, DESCRIPTION, PRIORITY, DUE_DATE)
-{
-    const TO_DO_CARD_SECTION = document.querySelector("#toDoListSection"); 
-
-    let newCardObj = new toDoListCard(); 
-    TO_DO_CARD_SECTION.appendChild(newCardObj.createToDoListCard(TITLE, DESCRIPTION, PRIORITY, DUE_DATE));
-    
-    setEventListeners() 
-
-    
-}
-
-
-
-
 /**
- * Sets the event listeners for newly created to do list card  
+ * Sets the event listeners for a newly created to do list card  
  * 
  * @param {*} e 
  */
@@ -102,9 +87,6 @@ function editCard(e)
     document.querySelector("#createToDoBtn").addEventListener("click", () => {editMode(target)});
     openToDoInputCard(); 
 }
-
-
-
 
 
 
@@ -174,7 +156,9 @@ function changeCardContent(target, title, description, priority, dueDate)
  }
 
 
-
+/**
+ * Clears all the to do list cards in the to do list card section  
+ */
  function clearAllCards()
  {
     let toDoCards = Array.from(document.querySelectorAll(".toDoListCard")); 
@@ -184,11 +168,8 @@ function changeCardContent(target, title, description, priority, dueDate)
         toDoCards[i].remove(); 
     }
 
-    // also need to set the delete node thing 
     displayCard();
  }
-
-
 
 
 export{createCardThroughInput, createCard, clearAllCards, changeCardContent};

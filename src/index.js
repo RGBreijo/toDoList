@@ -3,19 +3,20 @@ import{createCard, clearAllCards} from "./newToDoCard.js"
 import{getStoreProjectObjs} from "./dataStorage";
 
 
+
 addEventListenersForProject(); 
 
-document.querySelector("#createToDoBtn").addEventListener("click", createCardThroughInput); // OUTSIDE + 
+document.querySelector("#createToDoBtn").addEventListener("click", createCardThroughInput);  
 document.querySelector("#addList").addEventListener("click", displayToDoInput);
-
-
-
 document.querySelector("#todoInputCardClose").firstElementChild.addEventListener("click", closeToDoInputScreen);
 
 
+/**
+ * displayes the the to do card input screen 
+ */
 function displayToDoInput()
 {
-    // Fix for button having multiple event listeners 
+    // Fix for button having multiple event listeners due to button having both and edit to do card and create to do card functionality 
     let old_element = document.getElementById("createToDoBtn");
     let new_element = old_element.cloneNode(true);
     old_element.parentNode.replaceChild(new_element, old_element);
@@ -23,16 +24,20 @@ function displayToDoInput()
     document.querySelector("#createToDoBtn").addEventListener("click", createCardThroughInput);
     document.querySelector(".positionInputContent").style.display = "flex"; 
     clearToDoInputCard();
-
-
 }
 
+
+/**
+ * Closes the to do card input screen 
+ */
 function closeToDoInputScreen()
 {
     document.querySelector(".positionInputContent").style.display = "none";
 }
 
-
+/**
+ * Clears all data that the user inputed in the to do card input
+ */
 function clearToDoInputCard()
 {
     const TITLE_ELEMENT = document.querySelector("#title"); 
@@ -113,7 +118,5 @@ function populateSelectedProject()
     
         }
     }
-
-
 }
 
