@@ -1,8 +1,10 @@
 import{createCardThroughInput} from "./newToDoCard.js";
 import{createCard, clearAllCards} from "./newToDoCard.js"
 import{getStoreProjectObjs} from "./dataStorage";
+import{editProject} from "./projectSetup.js";
 
 
+projectInputScreenX();
 
 addEventListenersForProject(); 
 
@@ -79,14 +81,33 @@ function selectProject(e)
     let target = e.target || e.srcElement;
 
     let selectedProject = target.parentElement;
+    
 
     let previousSelectedProject = document.querySelector(".projectSelected"); 
     previousSelectedProject.classList.remove("projectSelected"); 
 
     selectedProject.classList.add("projectSelected");
+
+    let editBtn = target.parentElement.lastElementChild.firstElementChild;
+    editProject(editBtn);
     clearAllCards();
     populateSelectedProject();
 }
+
+
+
+
+function projectInputScreenX()
+{
+    document.querySelector("#projectInputCardClose").addEventListener("click", closeProjectInputScreen);
+}
+
+function closeProjectInputScreen()
+{
+    let projectInputScreen = document.querySelector(".positionProjectInputContainer");
+    projectInputScreen.style.display = "none"; 
+}
+
 
 
 
