@@ -88,8 +88,10 @@ function selectProject(e)
 
     selectedProject.classList.add("projectSelected");
 
+    
     let editBtn = target.parentElement.lastElementChild.firstElementChild;
-    editProject(editBtn);
+    editProject(target);
+
     clearAllCards();
     populateSelectedProject();
 }
