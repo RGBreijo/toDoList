@@ -34,10 +34,31 @@ function editProject(targetA) // event listener from selectProject
 }
 
 
-function editProjectEventListener()
-{
+function editProjectEventListener(e)
+{   
+    let target = e.target || e.srcElement;
+
     let projectInputScreen = document.querySelector(".positionProjectInputContainer");
     projectInputScreen.style.display = "flex"; 
+
+
+    // add event listner add then remove it each time 
+    let old_element = document.querySelector("#projectInputBtn");
+    let new_element = old_element.cloneNode(true);
+    old_element.parentNode.replaceChild(new_element, old_element);
+
+    document.querySelector("#projectInputBtn").addEventListener("click", () => {editProjectName(target)});
+}
+
+// need to then update the storage 
+// need to make it so letters stay in the same place 
+// need to clean the code 
+
+function editProjectName(projectTarget)
+{   
+    let newProjectName = document.querySelector("#projectName").value;
+    let oldProjectName = projectTarget.parentElement.parentElement.firstElementChild;
+    oldProjectName.textContent = newProjectName; 
 }
 
 
