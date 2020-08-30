@@ -2,6 +2,7 @@ import{createCardThroughInput} from "./newToDoCard.js";
 import{createCard, clearAllCards} from "./newToDoCard.js"
 import{getStoreProjectObjs} from "./dataStorage";
 import{editProject} from "./projectSetup.js";
+import{createNewProject} from "./project.js";
 
 
 projectInputScreenX();
@@ -11,7 +12,7 @@ addEventListenersForProject();
 document.querySelector("#createToDoBtn").addEventListener("click", createCardThroughInput);  
 document.querySelector("#addList").addEventListener("click", displayToDoInput);
 document.querySelector("#todoInputCardClose").firstElementChild.addEventListener("click", closeToDoInputScreen);
-
+document.querySelector("#addProjectBtn").addEventListener("click", newProject);
 
 /**
  * displayes the the to do card input screen 
@@ -111,6 +112,14 @@ function closeProjectInputScreen()
     projectName.value = ""; 
 }
 
+function openInputScreen()
+{
+    console.log("here");
+    let projectInputScreen = document.querySelector(".positionProjectInputContainer");
+    projectInputScreen.style.display = "flex"; 
+}
+
+
 
 
 
@@ -144,3 +153,27 @@ function populateSelectedProject()
     }
 }
 
+
+
+
+function newProject()
+{
+    console.log("aki");
+    openInputScreen(); 
+
+    let old_element = document.querySelector("#projectInputBtn");
+    let new_element = old_element.cloneNode(true);
+    old_element.parentNode.replaceChild(new_element, old_element);
+
+    document.querySelector("#projectInputBtn").addEventListener("click", addNewProject);
+}
+
+function addNewProject()
+{
+    let projectName = document.querySelector("#projectName").value; 
+    let projectCard = createNewProject(projectName); 
+    let projectSidebarContainer = document.querySelector("#sidebar"); 
+    projectSidebarContainer.appendChild(projectCard); 
+    closeProjectInputScreen(); 
+    addEventListenersForProject();
+}

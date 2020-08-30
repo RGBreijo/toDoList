@@ -1,5 +1,7 @@
 import{updateProjectName} from "./dataStorage";
 
+
+
 function editProject(targetA) // event listener from selectProject
 {
 
