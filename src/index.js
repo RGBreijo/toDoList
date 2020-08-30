@@ -108,6 +108,7 @@ function closeProjectInputScreen()
 {
     let projectInputScreen = document.querySelector(".positionProjectInputContainer");
     projectInputScreen.style.display = "none"; 
+    projectName.value = ""; 
 }
 
 
