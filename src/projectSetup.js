@@ -1,6 +1,4 @@
-
-
-
+import{updateProjectName} from "./dataStorage";
 
 
 function editProject(targetA) // event listener from selectProject
@@ -57,8 +55,11 @@ function editProjectEventListener(e)
 function editProjectName(projectTarget)
 {   
     let newProjectName = document.querySelector("#projectName").value;
-    let oldProjectName = projectTarget.parentElement.parentElement.firstElementChild;
-    oldProjectName.textContent = newProjectName; 
+    let oldProjectNamePath = projectTarget.parentElement.parentElement.firstElementChild;
+    let oldProjectName = oldProjectNamePath.textContent;
+
+    updateProjectName(oldProjectName, newProjectName); 
+    oldProjectNamePath.textContent = newProjectName; 
 }
 
 
