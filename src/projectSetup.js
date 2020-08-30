@@ -1,6 +1,5 @@
 import{updateProjectName} from "./dataStorage";
 
-
 function editProject(targetA) // event listener from selectProject
 {
 
@@ -60,7 +59,17 @@ function editProjectName(projectTarget)
 
     updateProjectName(oldProjectName, newProjectName); 
     oldProjectNamePath.textContent = newProjectName; 
+    closeProjectInputScreen(); 
 }
+
+
+function closeProjectInputScreen()
+{
+    let projectInputScreen = document.querySelector(".positionProjectInputContainer");
+    projectInputScreen.style.display = "none"; 
+    projectName.value = ""; 
+}
+
 
 
 export{editProject};
