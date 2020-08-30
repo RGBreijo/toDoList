@@ -88,7 +88,7 @@ body, h1, h2, p{
     
 }
 
-#deleteProject, #editProjectName{
+.deleteProject, .editProjectName{
     color: #9ea09e;
 
 }
