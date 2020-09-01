@@ -167,5 +167,16 @@ function updateProjectName(oldProjectName, newProjectName)
     }
 }
 
-export{saveToDoCard, saveProjectName, displayCard, deleteToDoCard, updateToDoCard, getStoreProjectObjs, updateProjectName};
+
+function deleteProjectStorage(projectName)
+{
+    for(let i = 0; i < storeProjectObj.length; i++)
+    {
+        if(storeProjectObj[i].originalProjectName === projectName)
+        {
+            storeProjectObj.splice(i, 1);
+        }
+    }
+}
+export{saveToDoCard, saveProjectName, displayCard, deleteToDoCard, updateToDoCard, getStoreProjectObjs, updateProjectName, deleteProjectStorage};
 

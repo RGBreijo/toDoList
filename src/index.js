@@ -1,7 +1,7 @@
 import{createCardThroughInput} from "./newToDoCard.js";
 import{createCard, clearAllCards} from "./newToDoCard.js"
 import{getStoreProjectObjs} from "./dataStorage";
-import{editProject} from "./projectSetup.js";
+import{editProject, deleteProjectEventListener} from "./projectSetup.js";
 import{createNewProject} from "./project.js";
 
 
@@ -73,7 +73,9 @@ function addEventListenersForProject()
     for(let i = 0; i < projects.length; i++)
     {
         projects[i].addEventListener('click', selectProject);
+
     }
+
 }
 
 
@@ -83,8 +85,13 @@ function addEventListenersForProject()
  * for that project. 
  */
 function selectProject(e)
-{
+{   
+
+
     let target = e.target || e.srcElement;
+    console.log(target);
+    console.log("end");
+
 
     let selectedProject = target.parentElement;
     
@@ -95,11 +102,25 @@ function selectProject(e)
     selectedProject.classList.add("projectSelected");
 
     
-    let editBtn = target.parentElement.lastElementChild.firstElementChild;
     editProject(target);
+    deleteProjectEventListener(target); 
 
     clearAllCards();
     populateSelectedProject();
+}
+
+function test(selectedProject)
+{
+    // let target = e.target || e.srcElement;
+
+    // let selectedProject = target.parentElement;
+    
+
+    
+    editProject(selectedProject);
+
+    // clearAllCards();
+    // populateSelectedProject();
 }
 
 
@@ -198,3 +219,5 @@ function addNewProject()
     closeProjectInputScreen(); 
     addEventListenersForProject();
 }
+
+export{selectProject, test};

@@ -1,16 +1,16 @@
-import{updateProjectName} from "./dataStorage";
-
+import{updateProjectName, deleteProjectStorage} from "./dataStorage";
+import{selectProject, test} from "./index.js";
 
 
 function editProject(targetA) // event listener from selectProject
 {
 
-
-
     // remove event listener 
     let old_element = document.querySelector(".projectEditSelected");
+    console.log(old_element);
     let new_element = old_element.cloneNode(true);
     old_element.parentNode.replaceChild(new_element, old_element);
+
 
 
     // set up the class for the new one 
@@ -33,6 +33,7 @@ function editProject(targetA) // event listener from selectProject
 }
 
 
+
 function editProjectEventListener(e)
 {   
     let target = e.target || e.srcElement;
@@ -48,6 +49,92 @@ function editProjectEventListener(e)
 
     document.querySelector("#projectInputBtn").addEventListener("click", () => {editProjectName(target)});
 }
+
+
+
+
+
+/**
+ * Activates the delete option for the selected project 
+ * @param {*} projectTitlePath 
+ */
+function deleteProjectEventListener(projectTitlePath)
+{   
+        let projetTitle = projectTitlePath.textContent; 
+
+        // remove event listener 
+        let old_element = document.querySelector(".deleteProjectSelected");
+        console.log(old_element + "delete project not showing up");
+        let new_element = old_element.cloneNode(true);
+        old_element.parentNode.replaceChild(new_element, old_element);
+        
+    
+        // // set up the class for the new one 
+        let previousSelectedProject = document.querySelector(".deleteProjectSelected"); 
+        previousSelectedProject.classList.remove("deleteProjectSelected"); 
+
+        let projectDeletePath = projectTitlePath.parentElement.lastElementChild.lastElementChild;
+        projectDeletePath.classList.add("deleteProjectSelected");
+    
+        document.querySelector(".deleteProjectSelected").addEventListener("click", deleteProjectX);
+
+       
+
+        // need to switch 
+
+
+        // SET PROJECT ONE TO BE SELECTED
+        // 
+}
+
+
+/**
+ * When a project is deleted a default project needs to be selected 
+ */
+function selectProjectOne()
+{
+    let firstProject = document.querySelector(".sidebarProject");
+    let firstProjectTitlePath = document.querySelector(".sidebarProject").firstElementChild;
+
+        
+    let projectEdit = firstProject.lastElementChild.firstElementChild;
+    let projectDelete = firstProject.lastElementChild.lastElementChild;
+
+
+    firstProject.classList.add("projectSelected"); 
+    projectEdit.classList.add("projectEditSelected"); 
+    projectDelete.classList.add("deleteProjectSelected");
+
+
+    firstProjectTitlePath.addEventListener("click", bla); 
+    firstProjectTitlePath.click(); 
+
+
+    // editProject(firstProject.firstElementChild);
+
+}
+
+
+function bla(e)
+{
+    let target = e.target || e.srcElement;
+    // selectProject(target);
+}
+
+
+
+
+function deleteProjectX(e)
+{
+    let target = e.target || e.srcElement;
+
+    let projectContainer = target.parentElement.parentElement;
+    let projectTitle = projectContainer.firstElementChild.textContent; 
+
+    projectContainer.remove();
+    deleteProjectStorage(projectTitle); 
+    selectProjectOne();
+}   
 
 
 
@@ -78,4 +165,4 @@ function closeProjectInputScreen()
 
 
 
-export{editProject};
+export{editProject, deleteProjectEventListener};
