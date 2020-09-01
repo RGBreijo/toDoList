@@ -49,10 +49,12 @@ function editProjectEventListener(e)
     document.querySelector("#projectInputBtn").addEventListener("click", () => {editProjectName(target)});
 }
 
-// need to then update the storage 
-// need to make it so letters stay in the same place 
-// need to clean the code 
 
+
+/**
+ * Change the name of a project 
+ * @param {*} projectTarget 
+ */
 function editProjectName(projectTarget)
 {   
     let newProjectName = document.querySelector("#projectName").value;
@@ -64,7 +66,9 @@ function editProjectName(projectTarget)
     closeProjectInputScreen(); 
 }
 
-
+/**
+ * Closes the input screen of the project
+ */
 function closeProjectInputScreen()
 {
     let projectInputScreen = document.querySelector(".positionProjectInputContainer");

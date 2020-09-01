@@ -149,6 +149,12 @@ function updateToDoCard(selectedProject)
 
 
 
+/**
+ * Change the name of a project
+ * 
+ * @param {*} oldProjectName 
+ * @param {*} newProjectName 
+ */
 function updateProjectName(oldProjectName, newProjectName)
 {
 

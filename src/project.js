@@ -1,5 +1,9 @@
 
 
+    /**
+     * Creates the elements needed for a project
+     * @param {*} name 
+     */
     function createNewProject(name)
     {
         let encapsulateProject = createDiv("sidebarProject");

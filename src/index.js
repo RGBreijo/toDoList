@@ -12,7 +12,12 @@ addEventListenersForProject();
 document.querySelector("#createToDoBtn").addEventListener("click", createCardThroughInput);  
 document.querySelector("#addList").addEventListener("click", displayToDoInput);
 document.querySelector("#todoInputCardClose").firstElementChild.addEventListener("click", closeToDoInputScreen);
+
+
 document.querySelector("#addProjectBtn").addEventListener("click", newProject);
+
+
+
 
 /**
  * displayes the the to do card input screen 
@@ -99,12 +104,17 @@ function selectProject(e)
 
 
 
-
+/**
+ * sets the closing action for the project input screen
+ */
 function projectInputScreenX()
 {
     document.querySelector("#projectInputCardClose").addEventListener("click", closeProjectInputScreen);
 }
 
+/**
+ * Closes the project input screen 
+ */
 function closeProjectInputScreen()
 {
     let projectInputScreen = document.querySelector(".positionProjectInputContainer");
@@ -112,6 +122,10 @@ function closeProjectInputScreen()
     projectName.value = ""; 
 }
 
+
+/**
+ * Opens the project input screen 
+ */
 function openInputScreen()
 {
     console.log("here");
@@ -155,19 +169,26 @@ function populateSelectedProject()
 
 
 
-
+/**
+ * 
+ * Executes functions needed when creating a new project + is clicked 
+ * 
+ */
 function newProject()
 {
-    console.log("aki");
     openInputScreen(); 
 
+    // Change the create btn path so it targets a new project instead of an edit 
     let old_element = document.querySelector("#projectInputBtn");
     let new_element = old_element.cloneNode(true);
     old_element.parentNode.replaceChild(new_element, old_element);
-
     document.querySelector("#projectInputBtn").addEventListener("click", addNewProject);
 }
 
+
+/**
+ * Add a new project to the sidebar with the given value 
+ */
 function addNewProject()
 {
     let projectName = document.querySelector("#projectName").value; 
