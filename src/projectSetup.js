@@ -1,5 +1,4 @@
 import{updateProjectName, deleteProjectStorage} from "./dataStorage";
-import{selectProject, test} from "./index.js";
 
 
 function editProject(targetA) // event listener from selectProject
@@ -176,4 +175,4 @@ function closeProjectInputScreen()
 
 
 
-export{editProject, deleteProjectEventListener};
+export{editProject, deleteProjectEventListener, selectProjectOne};

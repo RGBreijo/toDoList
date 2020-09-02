@@ -1,13 +1,14 @@
 import{createCardThroughInput} from "./newToDoCard.js";
 import{createCard, clearAllCards} from "./newToDoCard.js"
 import{getStoreProjectObjs} from "./dataStorage";
-import{editProject, deleteProjectEventListener} from "./projectSetup.js";
+import{editProject, deleteProjectEventListener, selectProjectOne} from "./projectSetup.js";
 import{createNewProject} from "./project.js";
 
 
 projectInputScreenX();
 
 addEventListenersForProject(); 
+selectProjectOne(); 
 
 document.querySelector("#createToDoBtn").addEventListener("click", createCardThroughInput);  
 document.querySelector("#addList").addEventListener("click", displayToDoInput);
