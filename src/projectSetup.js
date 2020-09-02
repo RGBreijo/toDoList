@@ -7,7 +7,6 @@ function editProject(targetA) // event listener from selectProject
 
     // remove event listener 
     let old_element = document.querySelector(".projectEditSelected");
-    console.log(old_element);
     let new_element = old_element.cloneNode(true);
     old_element.parentNode.replaceChild(new_element, old_element);
 
@@ -18,8 +17,6 @@ function editProject(targetA) // event listener from selectProject
     previousSelectedProject.classList.remove("projectEditSelected"); 
 
 
-
-    console.log(); // removing the class removes the target to it???
 
 
     // it could be that add("projectEditSelected");
@@ -62,23 +59,27 @@ function deleteProjectEventListener(projectTitlePath)
 {   
         let projetTitle = projectTitlePath.textContent; 
 
+
+
         // remove event listener 
         let old_element = document.querySelector(".deleteProjectSelected");
-        console.log(old_element + "delete project not showing up");
         let new_element = old_element.cloneNode(true);
         old_element.parentNode.replaceChild(new_element, old_element);
+            
         
-    
         // // set up the class for the new one 
         let previousSelectedProject = document.querySelector(".deleteProjectSelected"); 
         previousSelectedProject.classList.remove("deleteProjectSelected"); 
 
         let projectDeletePath = projectTitlePath.parentElement.lastElementChild.lastElementChild;
         projectDeletePath.classList.add("deleteProjectSelected");
-    
+        
         document.querySelector(".deleteProjectSelected").addEventListener("click", deleteProjectX);
+        
 
-       
+
+        // if more than one project then ok 
+
 
         // need to switch 
 
@@ -127,13 +128,23 @@ function bla(e)
 function deleteProjectX(e)
 {
     let target = e.target || e.srcElement;
+    
+    const MINIMINIMUM_AMOUNT = 1;  // of projects
+    let amountOfProjects = Array.from(document.querySelectorAll(".sidebarProject")).length; 
 
-    let projectContainer = target.parentElement.parentElement;
-    let projectTitle = projectContainer.firstElementChild.textContent; 
 
-    projectContainer.remove();
-    deleteProjectStorage(projectTitle); 
-    selectProjectOne();
+    if(amountOfProjects === MINIMINIMUM_AMOUNT)
+    {
+        console.log("Can't delete");
+    }else
+    {
+        let projectContainer = target.parentElement.parentElement;
+        let projectTitle = projectContainer.firstElementChild.textContent; 
+    
+        projectContainer.remove();
+        deleteProjectStorage(projectTitle); 
+        selectProjectOne();
+    }
 }   
 
 
