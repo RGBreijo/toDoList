@@ -90,10 +90,6 @@ function selectProject(e)
 
 
     let target = e.target || e.srcElement;
-    console.log(target);
-    console.log("end");
-
-
     let selectedProject = target.parentElement;
     
 
@@ -109,21 +105,6 @@ function selectProject(e)
     clearAllCards();
     populateSelectedProject();
 }
-
-function test(selectedProject)
-{
-    // let target = e.target || e.srcElement;
-
-    // let selectedProject = target.parentElement;
-    
-
-    
-    editProject(selectedProject);
-
-    // clearAllCards();
-    // populateSelectedProject();
-}
-
 
 
 /**
@@ -221,4 +202,4 @@ function addNewProject()
     addEventListenersForProject();
 }
 
-export{selectProject, test};
+export{selectProject};

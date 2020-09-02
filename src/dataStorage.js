@@ -167,7 +167,10 @@ function updateProjectName(oldProjectName, newProjectName)
     }
 }
 
-
+/**
+ * Delete a project from the project list 
+ * @param {*} projectName name of project to be deleted
+ */
 function deleteProjectStorage(projectName)
 {
     for(let i = 0; i < storeProjectObj.length; i++)

@@ -15,13 +15,7 @@ function editProject(targetA) // event listener from selectProject
     let previousSelectedProject = document.querySelector(".projectEditSelected"); 
     previousSelectedProject.classList.remove("projectEditSelected"); 
 
-
-
-
-    // it could be that add("projectEditSelected");
-    // sees that it already has it (because it is looking at the old version) so it does not add it
-    // but in reality it does not have it 
-
+    
     let editBtn = targetA.parentElement.lastElementChild.firstElementChild;
     editBtn.classList.add("projectEditSelected");
 
@@ -29,7 +23,10 @@ function editProject(targetA) // event listener from selectProject
 }
 
 
-
+/**
+ * Sets the event listener required to delete a project 
+ * @param {*} e 
+ */
 function editProjectEventListener(e)
 {   
     let target = e.target || e.srcElement;
@@ -56,10 +53,6 @@ function editProjectEventListener(e)
  */
 function deleteProjectEventListener(projectTitlePath)
 {   
-        let projetTitle = projectTitlePath.textContent; 
-
-
-
         // remove event listener 
         let old_element = document.querySelector(".deleteProjectSelected");
         let new_element = old_element.cloneNode(true);
@@ -74,17 +67,7 @@ function deleteProjectEventListener(projectTitlePath)
         projectDeletePath.classList.add("deleteProjectSelected");
         
         document.querySelector(".deleteProjectSelected").addEventListener("click", deleteProjectX);
-        
-
-
-        // if more than one project then ok 
-
-
-        // need to switch 
-
-
-        // SET PROJECT ONE TO BE SELECTED
-        // 
+    
 }
 
 
@@ -105,25 +88,15 @@ function selectProjectOne()
     projectEdit.classList.add("projectEditSelected"); 
     projectDelete.classList.add("deleteProjectSelected");
 
-
-    firstProjectTitlePath.addEventListener("click", bla); 
     firstProjectTitlePath.click(); 
-
-
-    // editProject(firstProject.firstElementChild);
-
-}
-
-
-function bla(e)
-{
-    let target = e.target || e.srcElement;
-    // selectProject(target);
 }
 
 
 
-
+/**
+ * Executes required method to delete a projec
+ * @param {*} e 
+ */
 function deleteProjectX(e)
 {
     let target = e.target || e.srcElement;
