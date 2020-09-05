@@ -5,15 +5,26 @@ import{editProject, deleteProjectEventListener, selectProjectOne} from "./projec
 import{createNewProject} from "./project.js";
 
 
-loadDataFromLocal(); 
 
 projectInputScreenX();
 
-addEventListenersForProject(); 
-selectProjectOne(); 
 
 
 
+
+
+if (JSON.parse(localStorage.getItem("storeProjectObj")) != null)
+{
+    let savedProject = JSON.parse(localStorage.getItem("storeProjectObj"));
+    loadDataFromLocal(savedProject); 
+    populateProjectTitle(); 
+    selectProjectOne();
+
+}else
+{
+    addEventListenersForProject(); 
+    selectProjectOne();         
+}
 
 
 
@@ -214,6 +225,83 @@ function populateSelectedProject()
     
         }
     }
+}
+
+
+/**
+ * Called when page first loads to populate the correct project titles
+ */
+function populateProjectTitle()
+{
+
+    let projectListObj = getStoreProjectObjs();
+
+
+    document.querySelector(".sidebarProject").remove();  // Remove Default Project 
+
+    // Set select the first project stored in the project obj as the selected project 
+    let test = createNewProject(projectListObj[0]);
+    let firstProjectName = projectListObj[0].originalProjectName;
+    test.addEventListener("click", (e) => {testEvent(e, firstProjectName)});  // Add event listener so can do things such as .firstElementChild 
+    test.click(); 
+
+
+        for(let i = 1; i < projectListObj.length; i++)
+        {
+            let projectTitle = projectListObj[i].originalProjectName;
+            let projectCard = createNewProject(projectTitle); 
+            let projectSidebarContainer = document.querySelector("#sidebar"); 
+            projectSidebarContainer.appendChild(projectCard); 
+        }
+
+        addEventListenersForProject(); 
+       
+}
+
+/**
+ * When saved div element you can not do .parentElement or .childElement
+ * without it being an event. this turns the element into an event 
+ * @param {*} e 
+ */
+function testEvent(e, firstProjectName)
+{
+    let target = e.target || e.srcElement;
+    target.classList.add("projectSelected");
+
+    let title = target.firstElementChild;
+    title.textContent = firstProjectName; 
+
+
+
+
+    let edit = target.lastElementChild.firstElementChild; 
+    let del = target.lastElementChild.lastElementChild; 
+
+    edit.classList.add("projectEditSelected");
+    del.classList.add("deleteProjectSelected"); 
+
+
+
+    console.log(target); 
+
+
+    let projectSidebarContainer = document.querySelector("#sidebar"); 
+    projectSidebarContainer.appendChild(target); 
+
+
+    // remove event listener used to set it up first project 
+    let old_element = target
+    let new_element = target.cloneNode(true);
+    old_element.parentNode.replaceChild(new_element, old_element);
+
+
+    populateSelectedProject();
+
+    // addEventListenersForProject(); // I think this starts off at the title so ??nvm ? 
+    // populate 
+    // 
+
+
 }
 
 

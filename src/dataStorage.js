@@ -196,12 +196,10 @@ function saveDataOnLocal()
     localStorage.setItem("storeProjectObj", JSON.stringify(storeProjectObj));
 }
 
-function loadDataFromLocal()
+
+function loadDataFromLocal(loadedData)
 {   
-    if (JSON.parse(localStorage.getItem("storeProjectObj")) != null)
-    {
-        storeProjectObj = JSON.parse(localStorage.getItem("storeProjectObj"));
-    }
+    storeProjectObj = loadedData
 }
 export{saveToDoCard, saveProjectName, displayCard, deleteToDoCard, updateToDoCard, getStoreProjectObjs, updateProjectName, deleteProjectStorage, loadDataFromLocal};
 
