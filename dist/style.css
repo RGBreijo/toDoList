@@ -506,10 +506,22 @@ when get out goes out cause of grid
 @media only screen and (min-width: 770px)
 {
 
+
+
+    .sidebarProject
+    {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+
+
+    
     /* All this needs to be commented out for the navbar to close on bigger screen  */
 
     #sidebarContentContainer{
-    display: block;
+        display: block;
     }
 
 
@@ -555,7 +567,7 @@ when get out goes out cause of grid
     }
 
     #sidebarContentContainer{
-        width: 250px;
+        width: 250px !important;      
     }
 
     .sidebarProject p{

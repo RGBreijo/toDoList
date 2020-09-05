@@ -21,14 +21,28 @@ document.querySelector("#closeSidebarContainer").addEventListener("click", close
 
 
 
-
+/**
+ * open the navgiation bar 
+ */
 function openNavBar()
 {
-    document.querySelector("#sidebarContentContainer").style.width = "160px"; 
-    document.getElementById("sidebarContentContainer").style.transition = "all 0.3s";
+    let windowWidth = window.innerWidth;
+
+    if(windowWidth > 500)
+    {
+        document.querySelector("#sidebarContentContainer").style.width = "200px"; 
+    }else
+    {
+        document.querySelector("#sidebarContentContainer").style.width = "160px"; 
+    }
+
+    document.getElementById("sidebarContentContainer").style.transition = "all 0.2s";
 
 }
 
+/**
+ * close the navigation bar
+ */
 function closeNavBar()
 {
     document.querySelector("#sidebarContentContainer").style.width = "0"; 
