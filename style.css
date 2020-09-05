@@ -48,6 +48,7 @@ body, h1, h2, p{
     font-size: 1.2em;
     padding: 0.5em;
     margin-bottom: 0.5em;
+
 }
 .projectSelected{
     background: #E5E5E5;
@@ -63,8 +64,17 @@ body, h1, h2, p{
     display: flex;
     justify-content: space-evenly;
     margin-top: 0.3em;
-
 }
+
+.sidebarProject div:first-child
+{
+    background-color: lightblue;
+}
+
+
+
+
+
 
 .sidebarProject div p:first-of-type{
     margin-right: 0.5em;
@@ -105,8 +115,17 @@ body, h1, h2, p{
 .selectedProjectTitle{
     color: #030303;
     width: 105px;
-
+    text-align: center;
 }
+
+
+.sidebarProject{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
 /* 
 Change to display absolute when it is not longer in display none 
 when get out goes out cause of grid 
