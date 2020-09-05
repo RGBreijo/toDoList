@@ -10,6 +10,36 @@ projectInputScreenX();
 addEventListenersForProject(); 
 selectProjectOne(); 
 
+
+
+
+
+
+document.querySelector("#hamburgerIcon").addEventListener("click", openNavBar); 
+document.querySelector("#closeSidebarContainer").addEventListener("click", closeNavBar); 
+
+
+
+
+
+function openNavBar()
+{
+    document.querySelector("#sidebarContentContainer").style.width = "160px"; 
+    document.getElementById("sidebarContentContainer").style.transition = "all 0.3s";
+
+}
+
+function closeNavBar()
+{
+    document.querySelector("#sidebarContentContainer").style.width = "0"; 
+}
+
+
+
+
+
+
+
 document.querySelector("#createToDoBtn").addEventListener("click", createCardThroughInput);  
 document.querySelector("#addList").addEventListener("click", displayToDoInput);
 document.querySelector("#todoInputCardClose").firstElementChild.addEventListener("click", closeToDoInputScreen);

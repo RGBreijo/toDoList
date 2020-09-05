@@ -25,7 +25,9 @@ body, h1, h2, p{
 /* * * * * * * mobile sidebar * * * * * * */ 
 #sidebarContentContainer{
     position: absolute;
+    /* here */
     width: 160px;
+
     height: 100vh;
 }
 
@@ -103,13 +105,20 @@ body, h1, h2, p{
 .selectedProjectTitle{
     color: #030303;
     width: 105px;
+
 }
 /* 
 Change to display absolute when it is not longer in display none 
 when get out goes out cause of grid 
 */
 #sidebarContentContainer{
-    display: none;
+    /* display: none; */
+    overflow: hidden;
+    width: 0;
+}
+
+#hamburgerIcon{
+    width: 35px;
 }
 
 
@@ -134,7 +143,18 @@ when get out goes out cause of grid
     display: grid;
     grid-template-columns: 30px 1fr;
     height: 75px;
+ 
+
 }
+
+#toDoListSection{
+    overflow: auto;
+    height: calc(100vh - (50px + 75px));  
+}
+
+
+
+
 
 #currentProjects{
     display: flex;
@@ -164,10 +184,7 @@ when get out goes out cause of grid
 }
 
 
-#toDoListSection{
-    overflow: auto;
-    height: calc(100vh - (50px + 75px));  
-}
+
 
 /* * * * * * * mobile todo list card * * * * * * */
 
