@@ -1,9 +1,11 @@
 import{createCardThroughInput} from "./newToDoCard.js";
 import{createCard, clearAllCards} from "./newToDoCard.js"
-import{getStoreProjectObjs} from "./dataStorage";
+import{getStoreProjectObjs, loadDataFromLocal} from "./dataStorage";
 import{editProject, deleteProjectEventListener, selectProjectOne} from "./projectSetup.js";
 import{createNewProject} from "./project.js";
 
+
+loadDataFromLocal(); 
 
 projectInputScreenX();
 

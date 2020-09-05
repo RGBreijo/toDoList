@@ -45,6 +45,8 @@ function saveProjectName()
         newProject.originalProjectName = projectSelectedName;
         storeProjectObj.push(newProject); 
     }
+
+    saveDataOnLocal(); 
 }
 
 
@@ -68,6 +70,8 @@ function saveToDoCard(listObj)
             storeProjectObj[i].storedProjectList.push(listObj); 
         }
     }
+
+    saveDataOnLocal(); 
 }
 
 /**
@@ -104,6 +108,8 @@ function deleteToDoCard(title, description, priority, dueDate)
             }
         }
     }
+
+    saveDataOnLocal(); 
 
 }
 
@@ -143,7 +149,7 @@ function updateToDoCard(selectedProject)
             }
         }
     }
-    
+    saveDataOnLocal(); 
     displayCard();
 }
 
@@ -165,6 +171,7 @@ function updateProjectName(oldProjectName, newProjectName)
             storeProjectObj[i].originalProjectName = newProjectName;
         }
     }
+    saveDataOnLocal(); 
 }
 
 /**
@@ -180,6 +187,21 @@ function deleteProjectStorage(projectName)
             storeProjectObj.splice(i, 1);
         }
     }
+    saveDataOnLocal(); 
 }
-export{saveToDoCard, saveProjectName, displayCard, deleteToDoCard, updateToDoCard, getStoreProjectObjs, updateProjectName, deleteProjectStorage};
+
+
+function saveDataOnLocal()
+{
+    localStorage.setItem("storeProjectObj", JSON.stringify(storeProjectObj));
+}
+
+function loadDataFromLocal()
+{   
+    if (JSON.parse(localStorage.getItem("storeProjectObj")) != null)
+    {
+        storeProjectObj = JSON.parse(localStorage.getItem("storeProjectObj"));
+    }
+}
+export{saveToDoCard, saveProjectName, displayCard, deleteToDoCard, updateToDoCard, getStoreProjectObjs, updateProjectName, deleteProjectStorage, loadDataFromLocal};
 
