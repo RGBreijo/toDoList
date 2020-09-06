@@ -1,6 +1,6 @@
 import{createCardThroughInput} from "./newToDoCard.js";
 import{createCard, clearAllCards} from "./newToDoCard.js"
-import{getStoreProjectObjs, loadDataFromLocal} from "./dataStorage";
+import{getStoreProjectObjs, loadDataFromLocal, saveProjectNameManually} from "./dataStorage";
 import{editProject, deleteProjectEventListener, selectProjectOne} from "./projectSetup.js";
 import{createNewProject} from "./project.js";
 
@@ -172,7 +172,6 @@ function closeProjectInputScreen()
  */
 function openInputScreen()
 {
-    console.log("here");
     let projectInputScreen = document.querySelector(".positionProjectInputContainer");
     projectInputScreen.style.display = "flex"; 
 }
@@ -311,6 +310,9 @@ function addNewProject()
     projectSidebarContainer.appendChild(projectCard); 
     closeProjectInputScreen(); 
     addEventListenersForProject();
+
+    saveProjectNameManually(projectName); 
+
 }
 
 export{selectProject};
