@@ -209,5 +209,41 @@ function loadDataFromLocal(loadedData)
 {   
     storeProjectObj = loadedData
 }
-export{saveToDoCard, saveProjectName, displayCard, deleteToDoCard, updateToDoCard, getStoreProjectObjs, updateProjectName, deleteProjectStorage, loadDataFromLocal};
+
+
+
+/** 
+ * Manually save the name of a project 
+ */
+ function saveProjectNameManually(projectName)
+ {
+
+    let found = false; 
+
+    // Check if project was already created 
+    for(let i = 0; i < storeProjectObj.length; i++)
+    {
+        if(storeProjectObj[i].originalProjectName === projectName)
+        {
+            found = true; 
+        }
+    }
+
+    // If not created adds it to the list 
+    if(!found)
+    {
+        let newProject = projectObj(); 
+        newProject.originalProjectName = projectName;
+        storeProjectObj.push(newProject); 
+    }
+
+    saveDataOnLocal(); 
+ }
+
+
+
+
+export{saveToDoCard, saveProjectName, displayCard, deleteToDoCard, 
+    updateToDoCard, getStoreProjectObjs, updateProjectName, deleteProjectStorage,
+     loadDataFromLocal, saveProjectNameManually};
 
