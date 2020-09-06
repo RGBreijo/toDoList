@@ -6,13 +6,8 @@ import{createNewProject} from "./project.js";
 
 
 
-projectInputScreenX();
 
-
-
-
-
-
+// Check to see if local storage contains saved data 
 if (JSON.parse(localStorage.getItem("storeProjectObj")) != null)
 {
     let savedProject = JSON.parse(localStorage.getItem("storeProjectObj"));
@@ -27,15 +22,21 @@ if (JSON.parse(localStorage.getItem("storeProjectObj")) != null)
 }
 
 
-
+// Sets general functionality 
 document.querySelector("#hamburgerIcon").addEventListener("click", openNavBar); 
 document.querySelector("#closeSidebarContainer").addEventListener("click", closeNavBar); 
+document.querySelector("#projectInputCardClose").addEventListener("click", closeProjectInputScreen);
+
+document.querySelector("#createToDoBtn").addEventListener("click", createCardThroughInput);  
+document.querySelector("#addList").addEventListener("click", displayToDoInput);
+document.querySelector("#todoInputCardClose").firstElementChild.addEventListener("click", closeToDoInputScreen);
+document.querySelector("#addProjectBtn").addEventListener("click", newProject);
 
 
 
 
 /**
- * open the navgiation bar 
+ * open the side navgiation bar 
  */
 function openNavBar()
 {
@@ -54,7 +55,7 @@ function openNavBar()
 }
 
 /**
- * close the navigation bar
+ * close the side navigation bar
  */
 function closeNavBar()
 {
@@ -63,26 +64,13 @@ function closeNavBar()
 
 
 
-
-
-
-
-document.querySelector("#createToDoBtn").addEventListener("click", createCardThroughInput);  
-document.querySelector("#addList").addEventListener("click", displayToDoInput);
-document.querySelector("#todoInputCardClose").firstElementChild.addEventListener("click", closeToDoInputScreen);
-
-
-document.querySelector("#addProjectBtn").addEventListener("click", newProject);
-
-
-
-
 /**
- * displayes the the to do card input screen 
+ * Displays the screen that allows the user to input information about a there to do card 
  */
 function displayToDoInput()
 {
-    // Fix for button having multiple event listeners due to button having both and edit to do card and create to do card functionality 
+    // Fix for finish button having multiple event listeners due to finish button 
+    // having both an edit and create a create to do card functionality 
     let old_element = document.getElementById("createToDoBtn");
     let new_element = old_element.cloneNode(true);
     old_element.parentNode.replaceChild(new_element, old_element);
@@ -92,7 +80,6 @@ function displayToDoInput()
     clearToDoInputCard();
 }
 
-
 /**
  * Closes the to do card input screen 
  */
@@ -100,6 +87,9 @@ function closeToDoInputScreen()
 {
     document.querySelector(".positionInputContent").style.display = "none";
 }
+
+
+
 
 /**
  * Clears all data that the user inputed in the to do card input
@@ -121,6 +111,7 @@ function clearToDoInputCard()
     }
 }
 
+
 /**
  * Ads the ability to click on the different projects in the sidebar 
  */
@@ -133,8 +124,8 @@ function addEventListenersForProject()
         projects[i].addEventListener('click', selectProject);
 
     }
-
 }
+
 
 
 /**
@@ -164,13 +155,6 @@ function selectProject(e)
 }
 
 
-/**
- * sets the closing action for the project input screen
- */
-function projectInputScreenX()
-{
-    document.querySelector("#projectInputCardClose").addEventListener("click", closeProjectInputScreen);
-}
 
 /**
  * Closes the project input screen 
@@ -239,12 +223,11 @@ function populateProjectTitle()
 
     document.querySelector(".sidebarProject").remove();  // Remove Default Project 
 
-    // Set select the first project stored in the project obj as the selected project 
+    // Sets the first project stored in the project obj as the selected project 
     let test = createNewProject(projectListObj[0]);
     let firstProjectName = projectListObj[0].originalProjectName;
-    test.addEventListener("click", (e) => {testEvent(e, firstProjectName)});  // Add event listener so can do things such as .firstElementChild 
+    test.addEventListener("click", (e) => {setFirstProject(e, firstProjectName)});  // Added event listener so can do things such as .firstElementChild 
     test.click(); 
-
 
         for(let i = 1; i < projectListObj.length; i++)
         {
@@ -255,15 +238,20 @@ function populateProjectTitle()
         }
 
         addEventListenersForProject(); 
-       
 }
 
+
 /**
+ * 
+ * Sets the first project in the saved local storage array to have 
+ * the classes that the default project has.
+ * 
+ * Note: 
  * When saved div element you can not do .parentElement or .childElement
  * without it being an event. this turns the element into an event 
  * @param {*} e 
  */
-function testEvent(e, firstProjectName)
+function setFirstProject(e, firstProjectName)
 {
     let target = e.target || e.srcElement;
     target.classList.add("projectSelected");
@@ -272,17 +260,12 @@ function testEvent(e, firstProjectName)
     title.textContent = firstProjectName; 
 
 
-
-
     let edit = target.lastElementChild.firstElementChild; 
     let del = target.lastElementChild.lastElementChild; 
 
     edit.classList.add("projectEditSelected");
     del.classList.add("deleteProjectSelected"); 
 
-
-
-    console.log(target); 
 
 
     let projectSidebarContainer = document.querySelector("#sidebar"); 
@@ -294,17 +277,11 @@ function testEvent(e, firstProjectName)
     let new_element = target.cloneNode(true);
     old_element.parentNode.replaceChild(new_element, old_element);
 
-
     populateSelectedProject();
-
-    // addEventListenersForProject(); // I think this starts off at the title so ??nvm ? 
-    // populate 
-    // 
+ }
 
 
-}
-
-
+ 
 
 /**
  * 
