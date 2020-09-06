@@ -191,12 +191,20 @@ function deleteProjectStorage(projectName)
 }
 
 
+/**
+ * Save data that is stored locally 
+ */
 function saveDataOnLocal()
 {
     localStorage.setItem("storeProjectObj", JSON.stringify(storeProjectObj));
 }
 
 
+/**
+ * Sets storeProjectObj 
+ * 
+ * @param {*} loadedData obj containg to do data 
+ */
 function loadDataFromLocal(loadedData)
 {   
     storeProjectObj = loadedData

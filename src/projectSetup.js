@@ -1,6 +1,9 @@
 import{updateProjectName, deleteProjectStorage} from "./dataStorage";
 
-
+/**
+ * Sets the requirements for the edit option of the project 
+ * @param {*} targetA 
+ */
 function editProject(targetA) // event listener from selectProject
 {
 
