@@ -515,6 +515,14 @@ when get out goes out cause of grid
         align-items: center;
     }
 
+    #closeSidebarContainer{
+        display: none;
+    }
+
+    #sideBarHeading h2{
+        margin-top: 1.4em;
+    }
+
 
 
     
@@ -556,9 +564,6 @@ when get out goes out cause of grid
 
 
 
-
-    
-    
     #toDoListSection{
        flex-direction: row;
        flex-wrap: wrap;
@@ -567,7 +572,8 @@ when get out goes out cause of grid
     }
 
     #sidebarContentContainer{
-        width: 250px !important;      
+        /* Overrides the width given in javascript for the closing and opening of the navbar on smaller screens*/
+        width: 250px !important;  
     }
 
     .sidebarProject p{
