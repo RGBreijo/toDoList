@@ -5,7 +5,7 @@ import{editProject, deleteProjectEventListener, selectProjectOne} from "./projec
 import{createNewProject} from "./project.js";
 
 
-
+console.log("test");
 
 // Check to see if local storage contains saved data 
 if (JSON.parse(localStorage.getItem("storeProjectObj")) != null && JSON.parse(localStorage.getItem("storeProjectObj")).length > 0)
