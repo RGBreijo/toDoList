@@ -8,13 +8,19 @@ import{createNewProject} from "./project.js";
 console.log("test");
 
 // Check to see if local storage contains saved data 
-if (JSON.parse(localStorage.getItem("storeProjectObj")) != null && JSON.parse(localStorage.getItem("storeProjectObj")).length > 0)
+if (JSON.parse(localStorage.getItem("storeProjectObj")) != null)
 {
-    let savedProject = JSON.parse(localStorage.getItem("storeProjectObj"));
-    loadDataFromLocal(savedProject); 
-    populateProjectTitle(); 
-    selectProjectOne();
-
+    if(JSON.parse(localStorage.getItem("storeProjectObj")).length > 0)
+    {
+        let savedProject = JSON.parse(localStorage.getItem("storeProjectObj"));
+        loadDataFromLocal(savedProject); 
+        populateProjectTitle(); 
+        selectProjectOne();
+    }else
+    {
+        addEventListenersForProject(); 
+        selectProjectOne();   
+    }
 }else
 {
     addEventListenersForProject(); 
