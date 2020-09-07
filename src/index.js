@@ -8,7 +8,7 @@ import{createNewProject} from "./project.js";
 
 
 // Check to see if local storage contains saved data 
-if (JSON.parse(localStorage.getItem("storeProjectObj")) != null)
+if (JSON.parse(localStorage.getItem("storeProjectObj")).length > 0)
 {
     let savedProject = JSON.parse(localStorage.getItem("storeProjectObj"));
     loadDataFromLocal(savedProject); 
