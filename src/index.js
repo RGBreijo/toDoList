@@ -5,15 +5,16 @@ import{editProject, deleteProjectEventListener, selectProjectOne} from "./projec
 import{createNewProject} from "./project.js";
 
 
-console.log("test");
+// revert 
 
 // Check to see if local storage contains saved data 
 if (JSON.parse(localStorage.getItem("storeProjectObj")) != null)
 {
-        let savedProject = JSON.parse(localStorage.getItem("storeProjectObj"));
-        loadDataFromLocal(savedProject); 
-        populateProjectTitle(); 
-        selectProjectOne();
+    let savedProject = JSON.parse(localStorage.getItem("storeProjectObj"));
+    loadDataFromLocal(savedProject); 
+    populateProjectTitle(); 
+    selectProjectOne();
+
 }else
 {
     addEventListenersForProject(); 
