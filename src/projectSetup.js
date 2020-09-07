@@ -27,7 +27,7 @@ function editProject(targetA) // event listener from selectProject
 
 
 /**
- * Sets the event listener required to delete a project 
+ * Sets the event listener required to edit a project 
  * @param {*} e 
  */
 function editProjectEventListener(e)
