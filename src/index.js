@@ -18,7 +18,7 @@ if (JSON.parse(localStorage.getItem("storeProjectObj")) != null)
 }else
 {
     addEventListenersForProject(); 
-    selectProjectOne();         
+    selectProjectOne();      
 }
 
 
