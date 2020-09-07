@@ -137,6 +137,8 @@ function editProjectName(projectTarget)
     updateProjectName(oldProjectName, newProjectName); 
     oldProjectNamePath.textContent = newProjectName; 
     closeProjectInputScreen(); 
+
+    document.querySelector("#currentProjects").textContent = newProjectName;
 }
 
 /**

@@ -152,6 +152,8 @@ function selectProject(e)
 
     clearAllCards();
     populateSelectedProject();
+
+    document.querySelector("#currentProjects").textContent = target.textContent;
 }
 
 
